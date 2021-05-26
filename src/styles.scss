@@ -1,10 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 #container { display:block; }
 
-@font-face {
-  font-family: "Eurostile";
-  src: local("Eurostile"), url(./fonts/Eurostile/EurostileBold.ttf), format("truetype");
-}
+@import url("https://use.typekit.net/aco1mkw.css");
 
 // @media only screen and (orientation:portrait){
 
