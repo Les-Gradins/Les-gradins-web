@@ -12,12 +12,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       
-    - name: Use Node.js
-      uses: actions/setup-node@v1
+      - name: Use Node.js
+        uses: actions/setup-node@v1
 
-    - name: Prepare and deploy
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        npm install
-        npm run ng -- deploy --base-href=/Les-gradins-web/ --name="cicero-mt" --email=mbelanger.poly@outlook.com
+      - name: Prepare and deploy
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npm install
+          npm run ng -- deploy --base-href=/Les-gradins-web/ --name="cicero-mt" --email=mbelanger.poly@outlook.com
