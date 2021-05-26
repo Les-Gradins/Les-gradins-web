@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1622066455946,
+  "timestamp": 1622069731423,
   "index": "/Les-gradins-web/index.html",
   "assetGroups": [
     {
@@ -12,14 +12,14 @@
       },
       "urls": [
         "/Les-gradins-web/4.e808352de2d1296df033.js",
-        "/Les-gradins-web/5.25ae160cf861150227f3.js",
+        "/Les-gradins-web/5.36f952d38b192a1894ca.js",
         "/Les-gradins-web/favicon.ico",
         "/Les-gradins-web/index.html",
-        "/Les-gradins-web/main.920e407ed5ac85084bc8.js",
+        "/Les-gradins-web/main.3ce708874eece77e6e68.js",
         "/Les-gradins-web/manifest.webmanifest",
         "/Les-gradins-web/polyfills.94daefd414b8355106ab.js",
-        "/Les-gradins-web/runtime.3496af7a3311ed4517c9.js",
-        "/Les-gradins-web/styles.e92ae475f16657509fb3.css"
+        "/Les-gradins-web/runtime.c55dcb0326e45c2e2659.js",
+        "/Les-gradins-web/styles.c66cdd1ca2001f080b60.css"
       ],
       "patterns": []
     },
@@ -31,7 +31,6 @@
         "ignoreVary": true
       },
       "urls": [
-        "/Les-gradins-web/Eurostile.f46703783c3d654f12e7.ttf",
         "/Les-gradins-web/assets/LES GRADINS_BD_WEB/1-LES_GRADINS(XII)/1-LES GRADINS (XII)_CASE 1.jpg",
         "/Les-gradins-web/assets/LES GRADINS_BD_WEB/1-LES_GRADINS(XII)/1-LES GRADINS (XII)_CASE 2.jpg",
         "/Les-gradins-web/assets/LES GRADINS_BD_WEB/1-LES_GRADINS(XII)/1-LES GRADINS (XII)_CASE 3.jpg",
@@ -211,10 +210,6 @@
         "/Les-gradins-web/assets/LES GRADINS_PHOTO_WEB/9-L'ÉQUIPE/PHOTO1.jpg",
         "/Les-gradins-web/assets/LES GRADINS_PHOTO_WEB/9-L'ÉQUIPE/PHOTO2.jpg",
         "/Les-gradins-web/assets/LES GRADINS_PHOTO_WEB/9-L'ÉQUIPE/PHOTO3.jpg",
-        "/Les-gradins-web/assets/font/Eurostile/EuroStyle Normal.ttf",
-        "/Les-gradins-web/assets/font/Eurostile/EurostileBold.ttf",
-        "/Les-gradins-web/assets/font/Eurostile/EurostileExtended.ttf",
-        "/Les-gradins-web/assets/font/Eurostile/EurostileOblique.ttf",
         "/Les-gradins-web/assets/icons/icon-128x128.png",
         "/Les-gradins-web/assets/icons/icon-144x144.png",
         "/Les-gradins-web/assets/icons/icon-152x152.png",
@@ -231,8 +226,7 @@
   "dataGroups": [],
   "hashTable": {
     "/Les-gradins-web/4.e808352de2d1296df033.js": "12cfb8ded5908fb5db010d7e570afebf4a58fcd8",
-    "/Les-gradins-web/5.25ae160cf861150227f3.js": "6ff9bc376d205663862d0680b1b63be2b1dac938",
-    "/Les-gradins-web/Eurostile.f46703783c3d654f12e7.ttf": "74e86107419ff067362ed15a8c521a3c5bf1133d",
+    "/Les-gradins-web/5.36f952d38b192a1894ca.js": "27c3e7c6639bb6e753582ee8c14faa3eb0a310bd",
     "/Les-gradins-web/assets/LES GRADINS_BD_WEB/1-LES_GRADINS(XII)/1-LES GRADINS (XII)_CASE 1.jpg": "2105ce18cd38fa4f49c19b58c5a59bdfde7acdde",
     "/Les-gradins-web/assets/LES GRADINS_BD_WEB/1-LES_GRADINS(XII)/1-LES GRADINS (XII)_CASE 2.jpg": "1f423e206779d1a60cca16551fc83b16dd16b327",
     "/Les-gradins-web/assets/LES GRADINS_BD_WEB/1-LES_GRADINS(XII)/1-LES GRADINS (XII)_CASE 3.jpg": "6ab83f769877d4111659cab64d4cbbf80a4bc1e0",
@@ -412,10 +406,6 @@
     "/Les-gradins-web/assets/LES GRADINS_PHOTO_WEB/9-L'ÉQUIPE/PHOTO1.jpg": "7a06fc4761db7f565a4cd338ba50884aeb7f7fcf",
     "/Les-gradins-web/assets/LES GRADINS_PHOTO_WEB/9-L'ÉQUIPE/PHOTO2.jpg": "06eadcf56d4a0942f0c04a688e4925d2480526ef",
     "/Les-gradins-web/assets/LES GRADINS_PHOTO_WEB/9-L'ÉQUIPE/PHOTO3.jpg": "58416c5aa386a230b083f4f5a8641d6f37843c9c",
-    "/Les-gradins-web/assets/font/Eurostile/EuroStyle Normal.ttf": "c22959ed22e32fe86567280eba546f943d0e7319",
-    "/Les-gradins-web/assets/font/Eurostile/EurostileBold.ttf": "74e86107419ff067362ed15a8c521a3c5bf1133d",
-    "/Les-gradins-web/assets/font/Eurostile/EurostileExtended.ttf": "62b0eb5b2ad3e3eebfda6c6a183c7797af6fb1a1",
-    "/Les-gradins-web/assets/font/Eurostile/EurostileOblique.ttf": "99b95c08b6428cbe7b734b22658b55baa1419054",
     "/Les-gradins-web/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
     "/Les-gradins-web/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
     "/Les-gradins-web/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
@@ -426,12 +416,12 @@
     "/Les-gradins-web/assets/icons/icon-96x96.png": "3914125a4b445bf111c5627875fc190f560daa41",
     "/Les-gradins-web/assets/logo.png": "4cf3ef01daea4cf1a401f10226bf7e101b3a0cf7",
     "/Les-gradins-web/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/Les-gradins-web/index.html": "bb23f11c0bb56410c958679422745bbdf358f58b",
-    "/Les-gradins-web/main.920e407ed5ac85084bc8.js": "d4c53ede6926a9ea7b16d079f12af4deac016ad6",
+    "/Les-gradins-web/index.html": "f73d06ea92c8342085c1df2ad722bf11c4ff7aab",
+    "/Les-gradins-web/main.3ce708874eece77e6e68.js": "ffe0aa40bbcb87cc4843a0443a93d6aa80b7d5be",
     "/Les-gradins-web/manifest.webmanifest": "b3f9496d47c429ee500c1d669322f44640535301",
     "/Les-gradins-web/polyfills.94daefd414b8355106ab.js": "cfe7b0b53e96bff9ba384b4d497c08475a617d62",
-    "/Les-gradins-web/runtime.3496af7a3311ed4517c9.js": "910c80ce7c82a8d9df414c021bce5e36d810aa7a",
-    "/Les-gradins-web/styles.e92ae475f16657509fb3.css": "0c65a224b0d8ead77ae9a347c3e262ce1bfba9b3"
+    "/Les-gradins-web/runtime.c55dcb0326e45c2e2659.js": "88be8acfc85c500f3b7e06b768ccf78c49b9db33",
+    "/Les-gradins-web/styles.c66cdd1ca2001f080b60.css": "ede385569a8c3f884f1fe85e96d46690245ac6a8"
   },
   "navigationUrls": [
     {
