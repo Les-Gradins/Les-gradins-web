@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1622062873246,
+  "timestamp": 1622063925736,
   "index": "/Les-gradins-web/index.html",
   "assetGroups": [
     {
@@ -211,6 +211,10 @@
         "/Les-gradins-web/assets/LES GRADINS_PHOTO_WEB/9-L'ÉQUIPE/PHOTO1.jpg",
         "/Les-gradins-web/assets/LES GRADINS_PHOTO_WEB/9-L'ÉQUIPE/PHOTO2.jpg",
         "/Les-gradins-web/assets/LES GRADINS_PHOTO_WEB/9-L'ÉQUIPE/PHOTO3.jpg",
+        "/Les-gradins-web/assets/font/Eurostile/EuroStyle Normal.ttf",
+        "/Les-gradins-web/assets/font/Eurostile/EurostileBold.ttf",
+        "/Les-gradins-web/assets/font/Eurostile/EurostileExtended.ttf",
+        "/Les-gradins-web/assets/font/Eurostile/EurostileOblique.ttf",
         "/Les-gradins-web/assets/icons/icon-128x128.png",
         "/Les-gradins-web/assets/icons/icon-144x144.png",
         "/Les-gradins-web/assets/icons/icon-152x152.png",
@@ -408,6 +412,10 @@
     "/Les-gradins-web/assets/LES GRADINS_PHOTO_WEB/9-L'ÉQUIPE/PHOTO1.jpg": "7a06fc4761db7f565a4cd338ba50884aeb7f7fcf",
     "/Les-gradins-web/assets/LES GRADINS_PHOTO_WEB/9-L'ÉQUIPE/PHOTO2.jpg": "06eadcf56d4a0942f0c04a688e4925d2480526ef",
     "/Les-gradins-web/assets/LES GRADINS_PHOTO_WEB/9-L'ÉQUIPE/PHOTO3.jpg": "58416c5aa386a230b083f4f5a8641d6f37843c9c",
+    "/Les-gradins-web/assets/font/Eurostile/EuroStyle Normal.ttf": "c22959ed22e32fe86567280eba546f943d0e7319",
+    "/Les-gradins-web/assets/font/Eurostile/EurostileBold.ttf": "74e86107419ff067362ed15a8c521a3c5bf1133d",
+    "/Les-gradins-web/assets/font/Eurostile/EurostileExtended.ttf": "62b0eb5b2ad3e3eebfda6c6a183c7797af6fb1a1",
+    "/Les-gradins-web/assets/font/Eurostile/EurostileOblique.ttf": "99b95c08b6428cbe7b734b22658b55baa1419054",
     "/Les-gradins-web/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
     "/Les-gradins-web/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
     "/Les-gradins-web/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
