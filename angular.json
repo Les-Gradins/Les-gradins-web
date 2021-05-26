@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": "fd07b02c-3a9b-429c-ae78-c1313ceb85bd"
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
@@ -125,6 +128,10 @@
               "devServerTarget": "les-gradins:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {}
         }
       }
     }
