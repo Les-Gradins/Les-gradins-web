@@ -15,8 +15,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
 
-      - run: npm --cwd web install
-      - run: npm --cwd web build
+      - run: npm install
+      - run: npm build
       - uses: actions/upload-artifact@v2
         with:
           name: Webapp
