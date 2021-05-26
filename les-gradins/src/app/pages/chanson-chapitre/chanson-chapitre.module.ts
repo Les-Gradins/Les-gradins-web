@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
+import { ChansonService } from '../chanson.service';
 
-import { WelcomeRoutingModule } from './welcome-routing.module';
+import { ChansonChapitreRoutingModule } from './chanson-chapitre-routing.module';
 
 import { ChansonChapitreComponent } from './chanson-chapitre.component';
 
 
 @NgModule({
-  imports: [WelcomeRoutingModule],
+  imports: [ChansonChapitreRoutingModule],
   declarations: [ChansonChapitreComponent],
-  exports: [ChansonChapitreComponent]
+  exports: [ChansonChapitreComponent],
+  providers: [ChansonService]
 })
 export class ChansonChapitreModule { }
