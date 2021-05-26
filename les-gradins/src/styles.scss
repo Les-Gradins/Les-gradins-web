@@ -2,8 +2,8 @@
 #container { display:block; }
 
 @font-face {
-  font-family: "Eurostile Extended";
-  src: local("Eurostile"), url(./assets/font/Eurostile/EurostileExtended.ttf) format("truetype");
+  font-family: "Eurostile";
+  src: local("Eurostile"), url(./assets/font/Eurostile/EurostileExtended.ttf), format("truetype");
 }
 
 // @media only screen and (orientation:portrait){
