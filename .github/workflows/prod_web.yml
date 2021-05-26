@@ -16,7 +16,7 @@ jobs:
       - uses: actions/setup-node@v1
 
       - run: npm install
-      - run: npm run-script build
+      - run: ng deploy --base-href=/Les-gradins-web/
       - uses: actions/upload-artifact@v2
         with:
           name: Webapp
