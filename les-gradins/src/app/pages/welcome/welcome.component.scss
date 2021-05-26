@@ -1,110 +1,107 @@
 body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  max-height: 100vh;
-  background: #f1f3f6;
-  font-family: "Eurostile Extended";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-height: 100vh;
+    background: #f1f3f6;
+    font-family: "Eurostile Extended";
 }
 
 .container {
-  width: 100%;
-  height: 97vh;
+    width: 100%;
+    height: 97vh;
 }
 
 svg {
-  width: 80%;
-  filter: drop-shadow( -1px -1px 1px rgb(55, 84, 170, 0.2));
+    // height: max-content;
+    // width: max-content;
+    align-items: center;
+    // filter: drop-shadow( -1px -1px 1px rgb(55, 84, 170, 0.2));
 }
 
 .draw {
-  opacity: 0;
-  transition: opacity ease-in-out 1s;
+    opacity: 0;
+    transition: opacity ease-in-out 1s;
 }
 
 .prints {
-  opacity: 0;
+    opacity: 0;
+}
+
+.selected-song {
+    display: flex;
+    direction: row;
+    height: min-content;
 }
 
 .button {
-  position: relative;
-  width: 30vw;
-  height: 30vw;
-  background: #f1f3f6;
-  border-radius: 50%;
-  box-shadow: 
-    inset 0 0 15px rgba(55, 84, 170, 0), 
-    inset 0 0 20px rgba(255, 255, 255, 0), 
-    10px 10px 18px rgba(55, 84, 170, 0.15), 
-    -10px -10px 22px white, 
-    inset 0px 0px 4px rgba(255, 255, 255, 0.2);
-  transition: box-shadow 0.7s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  outline: none;
-  border: none;
-  font-size: 0;
+    position: relative;
+    width: 30vw;
+    height: 30vw;
+    background: #f1f3f6;
+    border-radius: 50%;
+    box-shadow: inset 0 0 15px rgba(55, 84, 170, 0), inset 0 0 20px rgba(255, 255, 255, 0), 10px 10px 18px rgba(55, 84, 170, 0.15), -10px -10px 22px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2);
+    transition: box-shadow 0.7s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: none;
+    font-size: 0;
 }
 
 .button-chanson {
-  display: inline-block;
-  margin-top: 5vh;
-  position: relative;
-  align-items: center;
-  justify-content: center;
-  // background: #f1f3f6;
-  border-radius: 40px;
-  box-shadow: 
-    inset 0 0 15px rgba(55, 84, 170, 0), 
-    inset 0 0 20px rgba(255, 255, 255, 0), 
-    10px 10px 18px rgba(55, 84, 170, 0.15), 
-    -10px -10px 22px white, 
-    inset 0px 0px 4px rgba(255, 255, 255, 0.2);
-  transition: box-shadow 0.7s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  outline: none;
-  border: none;
-  
+    display: inline-block;
+    margin-top: 5vh;
+    margin-left: 30px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    // background: #f1f3f6;
+    border-radius: 40px;
+    box-shadow: inset 0 0 15px rgba(55, 84, 170, 0), inset 0 0 20px rgba(255, 255, 255, 0), 10px 10px 18px rgba(55, 84, 170, 0.15), -10px -10px 22px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2);
+    transition: box-shadow 0.7s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: none;
 }
 
 .flex-item {
-  padding-top: 10px;
-  padding-left: 30px;
-  padding-right: 30px;
-  font-size: 2em;
-  
-  text-align: center;
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: 2em;
+    text-align: center;
 }
 
-.button:hover, .button:focus {
-  box-shadow: inset 7px 7px 15px rgba(55, 84, 170, 0.15), inset -7px -7px 20px white, 0px 0px 4px rgba(255, 255, 255, 0.2);
+.button:hover,
+.button:focus,
+.button-chanson:hover,
+.button-chanson:focus {
+    box-shadow: inset 7px 7px 15px rgba(55, 84, 170, 0.15), inset -7px -7px 20px white, 0px 0px 4px rgba(255, 255, 255, 0.2);
 }
 
 .button:hover .draw {
-  opacity: 0.4;
-}
-.button:hover .prints{
-  opacity: 1;
-  transition: opacity ease-in-out 0.8s;
+    opacity: 0.4;
 }
 
-
+.button:hover .prints {
+    opacity: 1;
+    transition: opacity ease-in-out 0.8s;
+}
 
 .button:hover:after {
-  --color: aqua;
+    --color: aqua;
 }
 
 @keyframes flash {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
-
-
