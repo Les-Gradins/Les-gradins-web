@@ -27,7 +27,7 @@ registerLocaleData(fr);
 const antDesignIcons = AllIcons as {
   [key: string]: IconDefinition;
 };
-const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesignIcons[key])
+const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesignIcons[key]);
 
 @NgModule({
   declarations: [

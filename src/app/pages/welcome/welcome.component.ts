@@ -11,28 +11,28 @@ import { Chanson } from '../song';
   providers: [ChansonService]
 })
 export class WelcomeComponent implements OnInit {
-  public selectedSong: Chanson
+  public selectedSong: Chanson;
   constructor(private chansonService: ChansonService, private router: Router) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.selectedSong = Tracklist[0];
   }
 
-  getNext(){
-    let next: number = this.selectedSong.tracknumber == 12 ? 0 : this.selectedSong.tracknumber;
-    console.log(next)
+  getNext(): void {
+    const next: number = this.selectedSong.tracknumber === 12 ? 0 : this.selectedSong.tracknumber;
+    console.log(next);
     this.selectedSong = Tracklist[next];
   }
 
-  getPrec(){
-    let prec: number = this.selectedSong.tracknumber == 1 ? 11 : this.selectedSong.tracknumber - 2;
-    console.log(prec)
+  getPrec(): void {
+    const prec: number = this.selectedSong.tracknumber === 1 ? 11 : this.selectedSong.tracknumber - 2;
+    console.log(prec);
     this.selectedSong = Tracklist[prec];
   }
 
-  selectSong(){
-    this.chansonService.setSelectedSong(this.selectedSong)
-    this.router.navigateByUrl('/chanson')
+  selectSong(): void {
+    this.chansonService.setSelectedSong(this.selectedSong);
+    this.router.navigateByUrl('/chanson');
   }
 
 }

@@ -6,14 +6,14 @@ import { BehaviorSubject, Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class ChansonService {
-  private selectedSong: BehaviorSubject<Chanson>
+  private selectedSong: BehaviorSubject<Chanson>;
 
-  getSelectedSong(){
+  getSelectedSong(): Observable<Chanson> {
     return this.selectedSong.asObservable();
   }
 
-  setSelectedSong(c: Chanson){
-    this.selectedSong.next(c)
+  setSelectedSong(c: Chanson): void {
+    this.selectedSong.next(c);
   }
   constructor() { }
 }
