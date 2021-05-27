@@ -10,20 +10,20 @@ export class ChansonService {
   private chansonActuelle: BehaviorSubject<Chanson> = new BehaviorSubject<Chanson>(Tracklist[0]);
   // chansonActuelle = this.chansonChoisie.asObservable()
 
-  getSelectedSong(){
-    return this.chansonActuelle.asObservable()
+  getSelectedSong(): Observable<Chanson>{
+    return this.chansonActuelle.asObservable();
   }
 
-  async setSelectedSong(c: Chanson){
-    console.log("SERVICE")
-    
+  async setSelectedSong(c: Chanson): Promise<any>{
+    console.log('SERVICE');
+
 
     return new Promise((resolve) => {
       this.chansonActuelle.next(c);
       resolve('SUP');
     });
   }
-  constructor() { 
+  constructor() {
     console.log('Called MyDataService constructor');
   }
 }
