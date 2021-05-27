@@ -6,6 +6,13 @@ on:
       - pre-prod
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+      - run: npm run lint
+
   build:
     runs-on: ubuntu-latest
     steps:
