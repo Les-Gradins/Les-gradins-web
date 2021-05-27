@@ -21,6 +21,7 @@ import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import { ChansonBdComponent } from './pages/chanson-bd/chanson-bd.component';
 import { ChansonPhotosComponent } from './pages/chanson-photos/chanson-photos.component';
+import { ChansonService } from './pages/chanson.service';
 
 registerLocaleData(fr);
 
@@ -51,7 +52,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [{ provide: NZ_I18N, useValue: fr_FR }, { provide: NZ_ICONS, useValue: icons }],
+  providers: [{ provide: NZ_I18N, useValue: fr_FR }, { provide: NZ_ICONS, useValue: icons }, ChansonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,7 +10,6 @@ import { ChansonService } from '../chanson.service';
 @NgModule({
   imports: [WelcomeRoutingModule],
   declarations: [WelcomeComponent],
-  exports: [WelcomeComponent, NzButtonModule],
-  providers: [ChansonService]
+  exports: [WelcomeComponent, NzButtonModule]
 })
 export class WelcomeModule { }

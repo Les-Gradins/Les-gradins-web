@@ -1,6 +1,6 @@
 import { Component, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router'; 
-import { combineLatest } from 'rxjs';
+import { combineLatest, Subscription } from 'rxjs';
 import { Tracklist } from 'src/tracklist';
 import { ChansonService } from '../chanson.service';
 import { Chanson } from '../song';
@@ -8,20 +8,24 @@ import { Chanson } from '../song';
 @Component({
   selector: 'app-chanson-chapitre',
   templateUrl: './chanson-chapitre.component.html',
-  styleUrls: ['./chanson-chapitre.component.scss'],
-  providers: [ ChansonService ]
+  styleUrls: ['./chanson-chapitre.component.scss']
 })
 export class ChansonChapitreComponent implements OnInit {
   song: Chanson|undefined;
   p: string;
+  sub: Subscription;
 
-  constructor(private route: ActivatedRoute, chansonService: ChansonService) {
-    // this.song = chansonService.getSelectedSong()
+  constructor(private route: ActivatedRoute, private chansonService: ChansonService) {
+    // this.song = chansonService.chansonActuelle.value
+    this.sub = this.chansonService.getSelectedSong().subscribe(title => {
+
+      this.song = title;
+      console.log(this.song)
     // 
     // route.params.subscribe(params => {
     //   console.log(params)
     //   this.song = Tracklist[this.getSongIndex(params)];
-    // })
+    })
    }
 
   ngOnInit(): void {
@@ -30,7 +34,11 @@ export class ChansonChapitreComponent implements OnInit {
    
 
   // Find the product that correspond with the id provided in route.
-    this.song = Tracklist[this.getSongIndex(songIdFromRoute)];
+    // this.song = Tracklist[this.getSongIndex(songIdFromRoute)];
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe()
   }
   ngOnChanges(changes: SimpleChanges) {
     // changes.prop contains the old and the new value...
@@ -49,18 +57,18 @@ export class ChansonChapitreComponent implements OnInit {
       }
     }
 
-    getNext(): number{
+    getNext(){
       console.log("NEXT")
-      return this.song.tracknumber == 12 ? 0 : this.song.tracknumber;
+      let next = this.song.tracknumber == 12 ? 0 : this.song.tracknumber;
       // console.log(next)
-      // this.selectedSong = Tracklist[next];
+      this.chansonService.setSelectedSong(Tracklist[next]);
     }
   
-    getPrec(): number{
+    getPrec(){
       console.log("PREC")
-      return this.song.tracknumber == 1 ? 11 : this.song.tracknumber - 2;
+      let prec = this.song.tracknumber == 1 ? 11 : this.song.tracknumber - 2;
       // console.log(prec)
-      // this.selectedSong = Tracklist[prec];
+      this.chansonService.setSelectedSong(Tracklist[prec]);
     }
 
 }

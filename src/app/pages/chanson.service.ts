@@ -1,19 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Chanson } from './song';
 import { BehaviorSubject, Observable} from 'rxjs';
+import { Tracklist } from 'src/tracklist';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ChansonService {
-  private selectedSong: BehaviorSubject<Chanson>
+  private chansonActuelle: BehaviorSubject<Chanson> = new BehaviorSubject<Chanson>(Tracklist[0]);
+  // chansonActuelle = this.chansonChoisie.asObservable()
 
   getSelectedSong(){
-    return this.selectedSong.asObservable();
+    return this.chansonActuelle.asObservable()
   }
 
-  setSelectedSong(c: Chanson){
-    this.selectedSong.next(c)
+  async setSelectedSong(c: Chanson){
+    console.log("SERVICE")
+    
+
+    return new Promise((resolve) => {
+      this.chansonActuelle.next(c);
+      resolve('SUP');
+    });
   }
-  constructor() { }
+  constructor() { 
+    console.log('Called MyDataService constructor');
+  }
 }

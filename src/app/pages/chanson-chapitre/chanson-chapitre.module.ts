@@ -9,7 +9,6 @@ import { ChansonChapitreComponent } from './chanson-chapitre.component';
 @NgModule({
   imports: [ChansonChapitreRoutingModule],
   declarations: [ChansonChapitreComponent],
-  exports: [ChansonChapitreComponent],
-  providers: [ChansonService]
+  exports: [ChansonChapitreComponent]
 })
 export class ChansonChapitreModule { }

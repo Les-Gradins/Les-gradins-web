@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Tracklist } from 'src/tracklist';
 import { ChansonService } from '../chanson.service';
 import { Chanson } from '../song';
@@ -7,15 +8,30 @@ import { Chanson } from '../song';
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.scss'],
-  providers: [ChansonService]
+  styleUrls: ['./welcome.component.scss']
 })
 export class WelcomeComponent implements OnInit {
-  public selectedSong: Chanson
-  constructor(private chansonService: ChansonService, private router: Router) { }
+  public selectedSong: Chanson|undefined;
+  private sub: Subscription;
+
+  constructor(private chansonService: ChansonService, private router: Router) { 
+    this.sub = this.chansonService.getSelectedSong().subscribe(title => {
+
+      this.selectedSong = title;
+      console.log(this.selectedSong)
+    // 
+    // route.params.subscribe(params => {
+    //   console.log(params)
+    //   this.song = Tracklist[this.getSongIndex(params)];
+    })
+  }
 
   ngOnInit() {
-    this.selectedSong = Tracklist[0];
+    
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe()
   }
 
   getNext(){
@@ -30,9 +46,13 @@ export class WelcomeComponent implements OnInit {
     this.selectedSong = Tracklist[prec];
   }
 
-  selectSong(){
-    this.chansonService.setSelectedSong(this.selectedSong)
-    this.router.navigateByUrl('/chanson')
+  async selectSong(){
+    this.chansonService.setSelectedSong(this.selectedSong).then(()=>{
+      this.router.navigateByUrl('/chanson')
+    })
+    
+
+    
   }
 
 }

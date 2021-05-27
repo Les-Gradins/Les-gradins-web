@@ -3,8 +3,8 @@
     <div class='flex-item'> {{song.trackname}} </div>
 
 </div>
-<!-- <div class="button-chanson" [routerLink]="['/chanson', getPrec()]" margin="30px">Backward</div>
-<div class="button-chanson" [routerLink]="['/chanson', getNext()]" margin="30px">Forward</div> -->
+<div class="button-chanson" (click)="getPrec()" margin="30px">Backward</div>
+<div class="button-chanson" (click)="getNext()" margin="30px">Forward</div>
 
 <div class='button-chanson' [routerLink]="['../BD',song.tracknumber]">
     <div class='flex-item'> BD </div>
