@@ -2,8 +2,8 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Tracklist } from 'src/tracklist';
-import { ChansonService } from '../chanson.service';
-import { Chanson } from '../song';
+import { ChansonService } from '../../modeles/chanson.service';
+import { Chanson } from '../../modeles/chanson';
 
 @Component({
   selector: 'app-welcome',

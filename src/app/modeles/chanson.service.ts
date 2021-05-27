@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Chanson } from './song';
+import { Chanson } from './chanson';
 import { BehaviorSubject, Observable} from 'rxjs';
 import { Tracklist } from 'src/tracklist';
 
@@ -14,15 +14,13 @@ export class ChansonService {
   }
 
   async setSelectedSong(c: Chanson): Promise<any>{
-    console.log('SERVICE');
 
 
     return new Promise((resolve) => {
       this.chansonActuelle.next(c);
-      resolve('SUP');
+      resolve('Nouvelle piste sélectionnée');
     });
   }
   constructor() {
-    console.log('Called MyDataService constructor');
   }
 }

@@ -2,8 +2,8 @@ import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular
 import { ActivatedRoute, Params } from '@angular/router';
 import { combineLatest, Subscription } from 'rxjs';
 import { Tracklist } from 'src/tracklist';
-import { ChansonService } from '../chanson.service';
-import { Chanson } from '../song';
+import { ChansonService } from '../../modeles/chanson.service';
+import { Chanson } from '../../modeles/chanson';
 
 @Component({
   selector: 'app-chanson-chapitre',

@@ -21,7 +21,7 @@ import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import { ChansonBdComponent } from './pages/chanson-bd/chanson-bd.component';
 import { ChansonPhotosComponent } from './pages/chanson-photos/chanson-photos.component';
-import { ChansonService } from './pages/chanson.service';
+import { ChansonService } from './modeles/chanson.service';
 
 registerLocaleData(fr);
 
