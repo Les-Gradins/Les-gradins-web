@@ -1,5 +1,5 @@
  import { SourceMapGenerator } from '@angular/compiler/src/output/source_map';
- import {Chanson} from '../src/app/pages/song';
+ import {Chanson} from './app/modeles/chanson';
 
  export let Tracklist: Chanson[] = [
 

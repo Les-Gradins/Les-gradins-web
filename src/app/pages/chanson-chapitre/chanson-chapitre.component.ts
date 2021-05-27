@@ -1,65 +1,56 @@
-import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { combineLatest } from 'rxjs';
+import { combineLatest, Subscription } from 'rxjs';
 import { Tracklist } from 'src/tracklist';
-import { ChansonService } from '../chanson.service';
-import { Chanson } from '../song';
+import { ChansonService } from '../../modeles/chanson.service';
+import { Chanson } from '../../modeles/chanson';
 
 @Component({
   selector: 'app-chanson-chapitre',
   templateUrl: './chanson-chapitre.component.html',
-  styleUrls: ['./chanson-chapitre.component.scss'],
-  providers: [ChansonService],
+  styleUrls: ['./chanson-chapitre.component.scss']
 })
-export class ChansonChapitreComponent implements OnInit, OnChanges {
-  song: Chanson | undefined;
-  p: string;
+export class ChansonChapitreComponent implements OnInit, OnChanges, OnDestroy {
+  chanson: Chanson|undefined;
+  sub: Subscription;
 
-  constructor(private route: ActivatedRoute, chansonService: ChansonService) {
-    // this.song = chansonService.getSelectedSong()
-    //
-    // route.params.subscribe(params => {
-    //   console.log(params)
-    //   this.song = Tracklist[this.getSongIndex(params)];
-    // })
-  }
+  constructor(private route: ActivatedRoute, private chansonService: ChansonService) {
+    this.sub = this.chansonService.getSelectedSong().subscribe(title => {
+      this.chanson = title;
+    });
+   }
 
   ngOnInit(): void {
-    const routeParams = this.route.snapshot.paramMap;
-    const songIdFromRoute = Number(routeParams.get('songId'));
-
-    // Find the product that correspond with the id provided in route.
-    this.song = Tracklist[this.getSongIndex(songIdFromRoute)];
   }
 
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
   ngOnChanges(changes: SimpleChanges): void {
     // changes.prop contains the old and the new value...
-    const routeParams = this.route.snapshot.paramMap;
-    const songIdFromRoute = Number(routeParams.get('songId'));
-    this.song = Tracklist[this.getSongIndex(songIdFromRoute)];
+    // const routeParams = this.route.snapshot.paramMap;
+    // const songIdFromRoute = String(routeParams.get('songId'));
+    // this.chanson = Tracklist[this.getSongIndex(songIdFromRoute)];
   }
 
-  getSongIndex(tracknumber: number): number {
-    if (tracknumber === 1) {
+  getSongIndex(tracknumber): number{
+    if (tracknumber === 1){
       return 0;
-    } else if (tracknumber === 12) {
+    } else if (tracknumber === 12){
       return 11;
     } else {
       return tracknumber - 1;
     }
   }
 
-  getNext(): number {
-    console.log('NEXT');
-    return this.song.tracknumber === 12 ? 0 : this.song.tracknumber;
-    // console.log(next)
-    // this.selectedSong = Tracklist[next];
+  getNext(): void{
+    const next = this.chanson.tracknumber === 12 ? 0 : this.chanson.tracknumber;
+    this.chansonService.setSelectedSong(Tracklist[next]);
   }
 
-  getPrec(): number {
-    console.log('PREC');
-    return this.song.tracknumber === 1 ? 11 : this.song.tracknumber - 2;
-    // console.log(prec)
-    // this.selectedSong = Tracklist[prec];
+  getPrec(): void{
+    const prec = this.chanson.tracknumber === 1 ? 11 : this.chanson.tracknumber - 2;
+    this.chansonService.setSelectedSong(Tracklist[prec]);
   }
+
 }

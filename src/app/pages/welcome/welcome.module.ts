@@ -4,13 +4,12 @@ import { WelcomeRoutingModule } from './welcome-routing.module';
 
 import { WelcomeComponent } from './welcome.component';
 import { NzButtonModule } from 'ng-zorro-antd/button';
-import { ChansonService } from '../chanson.service';
+import { ChansonService } from '../../modeles/chanson.service';
 
 
 @NgModule({
   imports: [WelcomeRoutingModule],
   declarations: [WelcomeComponent],
-  exports: [WelcomeComponent, NzButtonModule],
-  providers: [ChansonService]
+  exports: [WelcomeComponent, NzButtonModule]
 })
 export class WelcomeModule { }

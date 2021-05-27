@@ -1,38 +1,50 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { Tracklist } from 'src/tracklist';
-import { ChansonService } from '../chanson.service';
-import { Chanson } from '../song';
+import { ChansonService } from '../../modeles/chanson.service';
+import { Chanson } from '../../modeles/chanson';
 
 @Component({
   selector: 'app-welcome',
   templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.scss'],
-  providers: [ChansonService]
+  styleUrls: ['./welcome.component.scss']
 })
-export class WelcomeComponent implements OnInit {
-  public selectedSong: Chanson;
-  constructor(private chansonService: ChansonService, private router: Router) { }
+
+export class WelcomeComponent implements OnInit, OnDestroy {
+  public chansonChoisie: Chanson|undefined;
+  private sub: Subscription;
+
+  constructor(private chansonService: ChansonService, private router: Router) {
+    this.sub = this.chansonService.getSelectedSong().subscribe(chanson => {
+
+      this.chansonChoisie = chanson;
+
+    });
+  }
 
   ngOnInit(): void {
-    this.selectedSong = Tracklist[0];
+
   }
 
-  getNext(): void {
-    const next: number = this.selectedSong.tracknumber === 12 ? 0 : this.selectedSong.tracknumber;
-    console.log(next);
-    this.selectedSong = Tracklist[next];
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
   }
 
-  getPrec(): void {
-    const prec: number = this.selectedSong.tracknumber === 1 ? 11 : this.selectedSong.tracknumber - 2;
-    console.log(prec);
-    this.selectedSong = Tracklist[prec];
+  getNext(): void{
+    const next: number = this.chansonChoisie.tracknumber === 12 ? 0 : this.chansonChoisie.tracknumber;
+    this.chansonChoisie = Tracklist[next];
   }
 
-  selectSong(): void {
-    this.chansonService.setSelectedSong(this.selectedSong);
-    this.router.navigateByUrl('/chanson');
+  getPrec(): void{
+    const prec: number = this.chansonChoisie.tracknumber === 1 ? 11 : this.chansonChoisie.tracknumber - 2;
+    this.chansonChoisie = Tracklist[prec];
+  }
+
+  async selectSong(): Promise<any>{
+    this.chansonService.setSelectedSong(this.chansonChoisie).then(() => {
+      this.router.navigateByUrl('/chanson');
+    });
   }
 
 }
