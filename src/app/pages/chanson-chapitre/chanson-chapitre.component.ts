@@ -21,7 +21,6 @@ export class ChansonChapitreComponent implements OnInit, OnChanges, OnDestroy {
    }
 
   ngOnInit(): void {
-    
   }
 
   ngOnDestroy(): void {
@@ -54,5 +53,4 @@ export class ChansonChapitreComponent implements OnInit, OnChanges, OnDestroy {
     this.chansonService.setSelectedSong(Tracklist[prec]);
   }
 
-  
 }
