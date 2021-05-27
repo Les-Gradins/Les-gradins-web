@@ -14,29 +14,26 @@ jobs:
       
       - name: Setup Node.js
         uses: actions/setup-node@v1
+        
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-        
       
-      - name: Prepare and deploy
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          npm install
-          npm run lint
-          ###
-          # Configure Angular first!
-          ####
-          # npm test -- --watch=false --progress=false --browsers=ChromeHeadlessCI
-          # npm run webdriver-update-ci
-          # npm run e2e -- --protractor-config=e2e/protractor-ci.conf.js --webdriver-update=false
-         
-
-  release:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+          
+      - name: Lint
+        run: npm run lint
+        
       - name: Deploy to GH Pages
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run:
           npm run ng -- deploy --base-href=/Les-gradins-web/ --name="cicero-mt" --email=mbelanger.poly@outlook.com
+         
     
