@@ -1,4 +1,4 @@
-name: Web
+name: Lint & Build
 
 on:
   pull_request:
