@@ -4,6 +4,7 @@ on:
   pull_request:
     branches:
       - pre-prod
+      - main
 
 jobs:
   lint:
