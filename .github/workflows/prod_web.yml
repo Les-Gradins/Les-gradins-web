@@ -1,38 +1,39 @@
-name: Web
+name: Build and Deploy to GH-Pages
 
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
+      - pre-prod
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-
-      - run: npm install
-      - run: npm run-script build
-      - uses: actions/upload-artifact@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v1
+        
+      - name: Cache node modules
+        uses: actions/cache@v2
         with:
-          name: Webapp
-          path: dist
-
-  release:
-    if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v2
-        with:
-          path: .
-      - uses: JamesIves/github-pages-deploy-action@4.1.3
-        with:
-          BRANCH: gh-pages
-          FOLDER: Webapp
-          CLEAN: true
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-        
+      
+      - name: Install dependencies
+        run: npm install
+          
+      - name: Lint
+        run: npm run lint
+        
+      - name: Deploy to GH Pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run:
+          npm run ng -- deploy --base-href=/Les-gradins-web/ --name="cicero-mt" --email=mbelanger.poly@outlook.com
+         
+    

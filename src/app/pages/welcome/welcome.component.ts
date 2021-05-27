@@ -10,6 +10,7 @@ import { Chanson } from '../song';
   templateUrl: './welcome.component.html',
   styleUrls: ['./welcome.component.scss']
 })
+
 export class WelcomeComponent implements OnInit, OnDestroy {
   public chansonChoisie: Chanson|undefined;
   private sub: Subscription;

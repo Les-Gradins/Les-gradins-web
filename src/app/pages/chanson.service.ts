@@ -8,7 +8,6 @@ import { Tracklist } from 'src/tracklist';
 })
 export class ChansonService {
   private chansonActuelle: BehaviorSubject<Chanson> = new BehaviorSubject<Chanson>(Tracklist[0]);
-  // chansonActuelle = this.chansonChoisie.asObservable()
 
   getSelectedSong(): Observable<Chanson>{
     return this.chansonActuelle.asObservable();

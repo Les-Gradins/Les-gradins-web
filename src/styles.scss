@@ -4,10 +4,7 @@
     display: block;
 }
 
-@font-face {
-    font-family: "Eurostile";
-    src: local("Eurostile"), url(/src/fonts/Eurostile/EurostileExtended.ttf), format("truetype");
-}
+@import url("https://use.typekit.net/aco1mkw.css");
 
 // @media only screen and (orientation:portrait){
 //   #container {

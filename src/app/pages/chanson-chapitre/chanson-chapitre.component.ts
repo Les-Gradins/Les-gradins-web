@@ -54,4 +54,5 @@ export class ChansonChapitreComponent implements OnInit, OnChanges, OnDestroy {
     this.chansonService.setSelectedSong(Tracklist[prec]);
   }
 
+  
 }
