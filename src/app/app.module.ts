@@ -22,6 +22,9 @@ import * as AllIcons from '@ant-design/icons-angular/icons';
 import { ChansonBdComponent } from './pages/chanson-bd/chanson-bd.component';
 import { ChansonPhotosComponent } from './pages/chanson-photos/chanson-photos.component';
 import { ChansonService } from './pages/chanson.service';
+import { PageTitreComponent } from './pages/page-titre/page-titre.component';
+import { HomeButtonComponent } from './pages/home-button/home-button.component';
+import { MenuSaisonsComponent } from './pages/menu-saisons/menu-saisons.component';
 
 registerLocaleData(fr);
 
@@ -34,7 +37,10 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
   declarations: [
     AppComponent,
     ChansonBdComponent,
-    ChansonPhotosComponent
+    ChansonPhotosComponent,
+    PageTitreComponent,
+    HomeButtonComponent,
+    MenuSaisonsComponent
   ],
   imports: [
     BrowserModule,
