@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { ChansonService } from '../chanson.service';
+import { ChansonService } from 'src/app/modeles/chanson.service';
 
 @Component({
   selector: 'app-home-button',
@@ -27,7 +27,7 @@ export class HomeButtonComponent implements OnInit, OnDestroy {
   retourAuMenu(): void{
     console.log('here');
     if (this.personnage === 'Kirouac'){
-      this.router.navigateByUrl('menu/welcome');
+      this.router.navigateByUrl('menu/chapitres');
     } else {
       this.router.navigateByUrl('menu/saisons');
     }

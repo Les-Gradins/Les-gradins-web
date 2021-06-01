@@ -1,7 +1,7 @@
 import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { ChansonService } from '../pages/chanson.service';
+import { ChansonService } from '../modeles/chanson.service';
 
 @Component({
   selector: 'app-menu',

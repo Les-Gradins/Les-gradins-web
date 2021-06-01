@@ -9,11 +9,6 @@ import { MenuChapitresComponent } from './pages/menu-chapitres/menu-chapitres.co
 
 const routes: Routes = [
   { path: '', component: PageTitreComponent },
-  // { path: 'welcome', component: WelcomeComponent},
-  // { path: 'chanson', component: ChansonChapitreComponent },
-  // { path: 'chanson/BD/:songId', component: ChansonBdComponent },
-  // { path: 'chanson/Photos/:songId', component: ChansonPhotosComponent },
-  // { path: 'saisons', component: MenuSaisonsComponent },
   { path: 'menu', component: MenuComponent, children: [
     { path: 'chapitres', component: MenuChapitresComponent},
   { path: 'chanson', component: ChansonChapitreComponent },

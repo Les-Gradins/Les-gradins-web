@@ -20,7 +20,6 @@ import { NZ_ICONS } from 'ng-zorro-antd/icon';
 import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import { ChansonPhotosComponent } from './pages/chanson-photos/chanson-photos.component';
-import { ChansonService } from './pages/chanson.service';
 import { PageTitreComponent } from './pages/page-titre/page-titre.component';
 import { HomeButtonComponent } from './pages/home-button/home-button.component';
 import { MenuSaisonsComponent } from './pages/menu-saisons/menu-saisons.component';
@@ -28,6 +27,8 @@ import { PersonnageComponent } from './pages/personnage/personnage.component';
 import { MenuChapitresComponent } from './pages/menu-chapitres/menu-chapitres.component';
 import { ChansonChapitreComponent } from './pages/chanson-chapitre/chanson-chapitre.component';
 import { MenuComponent } from './menu/menu.component';
+import { ChansonService } from './modeles/chanson.service';
+
 
 registerLocaleData(fr);
 

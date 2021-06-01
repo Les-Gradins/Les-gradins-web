@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ChansonService } from '../chanson.service';
+import { ChansonService } from 'src/app/modeles/chanson.service';
 
 @Component({
   selector: 'app-page-titre',

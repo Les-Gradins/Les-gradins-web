@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { ChansonService } from '../chanson.service';
+import { ChansonService } from 'src/app/modeles/chanson.service';
 
 @Component({
   selector: 'app-personnage',
