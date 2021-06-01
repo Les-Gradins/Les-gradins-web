@@ -22,7 +22,6 @@ body {
 
 .button-chanson {
     display: inline-block;
-    margin-top: 5vh;
     position: relative;
     align-items: center;
     justify-content: center;
@@ -31,8 +30,8 @@ body {
     box-shadow: inset 7px 7px 15px rgba(55, 84, 170, 0.15), inset -7px -7px 20px white, 0px 0px 4px rgba(255, 255, 255, 0.2);
     transition: box-shadow 0.7s ease-in-out;
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
+    // align-items: flex-start;
+    // justify-content: flex-start;
     outline: none;
     border: none;
     font-family: Eurostile;
@@ -40,7 +39,6 @@ body {
 }
 
 .flex-item {
-    padding-top: 10px;
     padding-left: 30px;
     padding-right: 30px;
     text-align: center;

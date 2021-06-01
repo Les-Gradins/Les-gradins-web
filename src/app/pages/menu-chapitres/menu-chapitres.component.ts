@@ -6,12 +6,12 @@ import { ChansonService } from '../chanson.service';
 import { Chanson } from '../song';
 
 @Component({
-  selector: 'app-welcome',
-  templateUrl: './welcome.component.html',
-  styleUrls: ['./welcome.component.scss']
+  selector: 'app-menu-chapitres',
+  templateUrl: './menu-chapitres.component.html',
+  styleUrls: ['./menu-chapitres.component.scss']
 })
 
-export class WelcomeComponent implements OnInit, OnDestroy {
+export class MenuChapitresComponent implements OnInit, OnDestroy {
   public chansonChoisie: Chanson|undefined;
   private sub: Subscription;
 
@@ -43,7 +43,7 @@ export class WelcomeComponent implements OnInit, OnDestroy {
 
   async selectSong(): Promise<any>{
     this.chansonService.setSelectedSong(this.chansonChoisie).then(() => {
-      this.router.navigateByUrl('/chanson');
+      this.router.navigateByUrl('menu/chanson');
     });
   }
 

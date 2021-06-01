@@ -6,8 +6,8 @@
 }
 
 .app-layout {
-    height: 100vh;
-    // width: 100vh;
+    max-height: 100vh;
+    width: 100vh;
 }
 
 // // @media screen { //screen and (orientation:landscape) {
@@ -66,7 +66,11 @@
 nz-header {
     padding: 0;
     width: 100%;
+    height: max-content;
     z-index: 2;
+    background-color:#f1f3f6 ;
+    flex-direction: row-reverse;
+    align-content: flex-end;
 }
 
 .app-header {

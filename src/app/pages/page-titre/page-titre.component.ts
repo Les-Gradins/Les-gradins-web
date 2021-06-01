@@ -18,11 +18,12 @@ export class PageTitreComponent implements OnInit {
 
   async commencerExperience(p: string): Promise<any>{
     this.chansonService.setSelectedPersonnage(p).then(() => {
-      if (p === 'Kirouac'){
-        this.router.navigateByUrl('/welcome');
-      } else {
-        this.router.navigateByUrl('/saisons');
-      }
+      this.router.navigateByUrl('/menu');
+      // if (p === 'Kirouac'){
+      //   this.router.navigateByUrl('/welcome');
+      // } else {
+      //   this.router.navigateByUrl('/saisons');
+      // }
     });
   }
 
