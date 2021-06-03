@@ -6,8 +6,8 @@
 }
 
 .app-layout {
-    max-height: 100vh;
-    width: 100vh;
+    height: 100vh;
+    width: 100vw;
 }
 
 // // @media screen { //screen and (orientation:landscape) {
@@ -65,7 +65,7 @@
 
 nz-header {
     padding: 0;
-    width: 100%;
+    width: 100vw;
     height: max-content;
     z-index: 2;
     background-color:#f1f3f6 ;
@@ -73,17 +73,17 @@ nz-header {
     align-content: flex-end;
 }
 
-.app-header {
-    position: relative;
-    height: 64px;
-    padding: 0;
-    background: #fff;
-    box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
-}
+// .app-header {
+//     position: relative;
+//     height: 64px;
+//     padding: 0;
+//     background: #fff;
+//     box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
+// }
 
-nz-content {
-    margin: 24px;
-}
+// nz-content {
+//     margin: 24px;
+// }
 
 .inner-content {
     background: #fff;

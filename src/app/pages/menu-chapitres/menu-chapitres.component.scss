@@ -34,8 +34,10 @@ svg {
 
 .selected-song {
     display: flex;
+    width: 100%;
     direction: row;
     height: min-content;
+    justify-content: space-around;
 }
 
 .button {
@@ -54,10 +56,15 @@ svg {
     font-size: 0;
 }
 
+
+
+// CSS pour mobile
+
+
 .button-chanson {
     display: inline-block;
     margin-top: 5vh;
-    margin-left: 30px;
+    // margin-left: 30px;
     position: relative;
     align-items: center;
     justify-content: center;
@@ -76,7 +83,7 @@ svg {
     padding-top: 10px;
     padding-left: 30px;
     padding-right: 30px;
-    font-size: 2em;
+    font-size: large;
     text-align: center;
 }
 
@@ -107,3 +114,53 @@ svg {
         opacity: 1;
     }
 }
+
+@media only screen and (max-width: 600px) { //screen and (orientation:landscape) {
+    /* Your CSS Here*/
+    .app-layout {
+      height: 100vh;
+      // width: 100vh;
+    }
+  
+    .flex-item {
+      padding-top: 10px;
+      padding-left: 30px;
+      padding-right: 30px;
+      font-size: medium;
+      text-align: center;
+      }
+  
+    .button {
+      position: relative;
+      width: 70vw;
+      height: 70vw;
+      background: #f1f3f6;
+      border-radius: 50%;
+      box-shadow: inset 0 0 15px rgba(55, 84, 170, 0), inset 0 0 20px rgba(255, 255, 255, 0), 10px 10px 18px rgba(55, 84, 170, 0.15), -10px -10px 22px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2);
+      transition: box-shadow 0.7s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      outline: none;
+      border: none;
+      font-size: 0;
+      }
+  
+      .button-chanson {
+          display: inline-block;
+          margin-top: 5vh;
+          position: relative;
+          align-items: center;
+          justify-content: center;
+          // background: #f1f3f6;
+          border-radius: 40px;
+          box-shadow: inset 0 0 15px rgba(55, 84, 170, 0), inset 0 0 20px rgba(255, 255, 255, 0), 10px 10px 18px rgba(55, 84, 170, 0.15), -10px -10px 22px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2);
+          transition: box-shadow 0.7s ease-in-out;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          outline: none;
+          border: none;
+      }
+  
+  }
