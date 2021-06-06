@@ -1,19 +1,18 @@
 <div class='button-chanson'>
-
+    <div class="button-chanson" (click)="getPrec()" margin="30px">Backward</div>
+    
     <div class='flex-item'> {{chanson.trackname}} </div>
+    <div class="button-chanson" (click)="getNext()" margin="30px">Forward</div>
 
 </div>
-<div class="button-chanson" (click)="getPrec()" margin="30px">Backward</div>
-<div class="button-chanson" (click)="getNext()" margin="30px">Forward</div>
-
-<div class='button-chanson' [routerLink]="['../BD',chanson.tracknumber]">
+<!-- <div class='button-chanson' [routerLink]="['../BD',chanson.tracknumber]">
     <div class='flex-item'> BD </div>
-    <!-- <img class="photo" width="100%" src="{{song.photosPath}}/PHOTO1.jpg" style="background-image:url({{song.photosPath}}/PHOTO1.jpg)" /> -->
+    <img class="photo" width="100%" src="{{song.photosPath}}/PHOTO1.jpg" style="background-image:url({{song.photosPath}}/PHOTO1.jpg)" />
 </div>
 
 <div class='button-chanson' [routerLink]="['../Photos',chanson.tracknumber]">
     <div class='flex-item'> PHOTO </div>
-    <!-- <image width="100%" height="100%" xlink:href="../assets/logo.png" /> -->
-</div>
+    <image width="100%" height="100%" xlink:href="../assets/logo.png" />
+</div> -->
 
 
