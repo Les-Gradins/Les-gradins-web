@@ -43,3 +43,6 @@ testem.log
 Thumbs.db
 package.json
 package.json
+package-lock.json
+src/app/pages/menu-chapitres/menu-chapitres.component.html
+package.json

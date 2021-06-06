@@ -8,6 +8,14 @@ body {
     background: #f1f3f6;
     font-family: "Eurostile-extended";
     font-weight: bold;
+    
+}
+
+h2 {
+    position:absolute;
+    transform: translateY(-44px);
+    font-weight: bold;
+    font-size: small;
 }
 
 
@@ -31,8 +39,16 @@ svg {
 .prints {
     opacity: 0;
 }
-
+.buttons{
+    position:absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .selected-song {
+    padding-top: 20px;
+    position: relative;
     display: flex;
     width: 100%;
     direction: row;
