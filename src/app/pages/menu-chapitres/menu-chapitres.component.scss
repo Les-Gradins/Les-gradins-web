@@ -11,11 +11,17 @@ body {
     
 }
 
-h2 {
+.tracklist {
     position:absolute;
-    transform: translateY(-44px);
+    transform:  translateY(-46px);
     font-weight: bold;
-    font-size: small;
+    font-size: xx-small;
+}
+
+h2 {
+    position:absolute;
+    font-weight: bold;
+    font-size: xx-small;
 }
 
 
@@ -25,10 +31,9 @@ h2 {
 }
 
 svg {
-    // height: max-content;
-    // width: max-content;
+    width:28vw;
+    height:28vw;
     align-items: center;
-    // filter: drop-shadow( -1px -1px 1px rgb(55, 84, 170, 0.2));
 }
 
 .draw {
@@ -58,6 +63,8 @@ svg {
 
 .button {
     position: relative;
+    display: flex;
+    flex-direction: column;
     width: 30vw;
     height: 30vw;
     background: #f1f3f6;
@@ -72,6 +79,11 @@ svg {
     font-size: 0;
 }
 
+image {
+    position: absolute ;
+    left:0; 
+    top:0;
+}
 
 
 // CSS pour mobile
@@ -96,9 +108,10 @@ svg {
 }
 
 .flex-item {
-    padding-top: 10px;
-    padding-left: 30px;
-    padding-right: 30px;
+    padding: 10px 30px;
+    // padding-top: 10px;
+    // padding-left: 30px;
+    // padding-right: 30px;
     font-size: large;
     text-align: center;
 }
@@ -129,6 +142,13 @@ svg {
     100% {
         opacity: 1;
     }
+}
+
+.rotated { 
+    transform:rotate(25deg); 
+    -webkit-transform:rotate(25deg); 
+    -moz-transform:rotate(25deg); 
+    -o-transform:rotate(25deg); 
 }
 
 @media only screen and (max-width: 600px) { //screen and (orientation:landscape) {
@@ -178,5 +198,11 @@ svg {
           outline: none;
           border: none;
       }
+
+      svg {
+        width:64vw;
+        height:64vw;
+        align-items: center;
+    }
   
   }

@@ -20,23 +20,19 @@ export class MenuChapitresComponent implements OnInit, OnDestroy {
 
   constructor(private chansonService: ChansonService, private router: Router) {
     this.sub = this.chansonService.getSelectedSong().subscribe(chanson => {
-
       this.chansonChoisie = chanson;
-
     });
 
     Tracklist.forEach((e) => {
-      this.ms += e.trackname + " | ";
+      this.ms += e.trackname + ' | ';
     });
     console.log(this.ms);
-
 
   }
 
   ngOnInit(): void {
     this.demo6 = new CircleType(document.getElementById('demo6')).dir(-1);
     console.log(this.demo6);
-    this.demo6.destroy.bind(this.demo6);
   }
 
   ngOnDestroy(): void {
@@ -46,8 +42,6 @@ export class MenuChapitresComponent implements OnInit, OnDestroy {
   getNext(): void{
     const next: number = this.chansonChoisie.tracknumber === 12 ? 0 : this.chansonChoisie.tracknumber;
     this.chansonChoisie = Tracklist[next];
-
-    
   }
 
   getPrec(): void{
