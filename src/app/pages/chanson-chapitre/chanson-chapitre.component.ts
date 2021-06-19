@@ -13,11 +13,17 @@ import { Chanson } from '../../modeles/chanson';
 export class ChansonChapitreComponent implements OnInit, OnChanges, OnDestroy {
   chanson: Chanson|undefined;
   sub: Subscription;
+  index: Array<number> = [];
 
   constructor(private route: ActivatedRoute, private chansonService: ChansonService) {
     this.sub = this.chansonService.getSelectedSong().subscribe(title => {
       this.chanson = title;
+      for (let i = 1; i <= this.chanson.casenumber; i++) {
+       this.index.push(i);
+      }
+      console.log(this.index);
     });
+
    }
 
   ngOnInit(): void {
