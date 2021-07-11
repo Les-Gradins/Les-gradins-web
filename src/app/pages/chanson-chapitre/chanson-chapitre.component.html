@@ -5,11 +5,11 @@
     <div class="button-chanson" (click)="getNext()" margin="30px"><i nz-icon nzType="right"></i></div>
 
 </div>
-<div class='BD'>
-    
+<div id="BD"class='BD'>
         <div class='case' *ngFor="let i of index">
             <img src="{{chanson.bdPath}}CASE-{{i}}.jpg" style="background-image:url({{chanson.photosPath}}/PHOTO1.jpg)" />
         </div>
+</div>
 
 
 

@@ -18,6 +18,7 @@ export class ChansonChapitreComponent implements OnInit, OnChanges, OnDestroy {
   constructor(private route: ActivatedRoute, private chansonService: ChansonService) {
     this.sub = this.chansonService.getSelectedSong().subscribe(title => {
       this.chanson = title;
+      this.index = [];
       for (let i = 1; i <= this.chanson.casenumber; i++) {
        this.index.push(i);
       }
@@ -33,10 +34,6 @@ export class ChansonChapitreComponent implements OnInit, OnChanges, OnDestroy {
     this.sub.unsubscribe();
   }
   ngOnChanges(changes: SimpleChanges): void {
-    // changes.prop contains the old and the new value...
-    // const routeParams = this.route.snapshot.paramMap;
-    // const songIdFromRoute = String(routeParams.get('songId'));
-    // this.chanson = Tracklist[this.getSongIndex(songIdFromRoute)];
   }
 
   getSongIndex(tracknumber): number{
@@ -52,11 +49,15 @@ export class ChansonChapitreComponent implements OnInit, OnChanges, OnDestroy {
   getNext(): void{
     const next = this.chanson.tracknumber === 12 ? 0 : this.chanson.tracknumber;
     this.chansonService.setSelectedSong(Tracklist[next]);
+    const bd = document.getElementById('BD');
+    bd.scrollTop = 0;
   }
 
   getPrec(): void{
     const prec = this.chanson.tracknumber === 1 ? 11 : this.chanson.tracknumber - 2;
     this.chansonService.setSelectedSong(Tracklist[prec]);
+    const bd = document.getElementById('BD');
+    bd.scrollTop = 0;
   }
 
 }
