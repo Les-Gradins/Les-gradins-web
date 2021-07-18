@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { ChansonService } from 'src/app/modeles/chanson.service';
 
 @Component({
@@ -8,23 +9,36 @@ import { ChansonService } from 'src/app/modeles/chanson.service';
   styleUrls: ['./page-titre.component.scss']
 })
 export class PageTitreComponent implements OnInit {
+  sub: Subscription;
+  personnage: string|undefined;
 
-  constructor(private chansonService: ChansonService, private router: Router) {}
+  constructor(private chansonService: ChansonService, private router: Router) {
+    this.sub = this.chansonService.getSelectedPersonnage().subscribe(perso => {
+      this.personnage = perso;
+    });
+  }
 
   ngOnInit(): void {
   }
 
 
-
-  async commencerExperience(p: string): Promise<any>{
+  async selectionnerExperience(p: string): Promise<any>{
     this.chansonService.setSelectedPersonnage(p).then(() => {
-      this.router.navigateByUrl('/menu');
-      // if (p === 'Kirouac'){
-      //   this.router.navigateByUrl('/welcome');
-      // } else {
-      //   this.router.navigateByUrl('/saisons');
-      // }
+
     });
+  }
+
+  async commencerExperience(): Promise<any>{
+    this.chansonService.setSelectedPersonnage(this.personnage).then(() => {
+      this.router.navigateByUrl('/menu');
+    });
+  }
+
+  isNotSelected(p: string): boolean {
+    return p !== this.personnage;
+  }
+  isSelected(p: string): boolean {
+    return p === this.personnage;
   }
 
 }
