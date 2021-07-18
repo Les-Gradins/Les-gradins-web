@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: 'menu', component: MenuComponent, children: [
     { path: 'chapitres', component: MenuChapitresComponent},
   { path: 'chanson', component: ChansonChapitreComponent },
-  { path: 'chanson/Photos/:songId', component: ChansonPhotosComponent },
+  { path: 'photo', component: ChansonPhotosComponent },
   { path: 'saisons', component: MenuSaisonsComponent },
   ]}
 ];

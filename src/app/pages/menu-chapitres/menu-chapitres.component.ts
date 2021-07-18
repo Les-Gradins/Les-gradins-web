@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { merge, Subscription } from 'rxjs';
 import { Tracklist } from 'src/tracklist';
 import { ChansonService } from '../../modeles/chanson.service';
 import { Chanson } from '../../modeles/chanson';
+import CircleType from 'circletype';
 
 @Component({
   selector: 'app-menu-chapitres',
@@ -14,17 +15,24 @@ import { Chanson } from '../../modeles/chanson';
 export class MenuChapitresComponent implements OnInit, OnDestroy {
   public chansonChoisie: Chanson|undefined;
   private sub: Subscription;
+  public ms = '';
+  public demo6: CircleType;
 
   constructor(private chansonService: ChansonService, private router: Router) {
     this.sub = this.chansonService.getSelectedSong().subscribe(chanson => {
-
       this.chansonChoisie = chanson;
-
     });
+
+    Tracklist.forEach((e) => {
+      this.ms += e.trackname + ' | ';
+    });
+    console.log(this.ms);
+
   }
 
   ngOnInit(): void {
-
+    this.demo6 = new CircleType(document.getElementById('demo6')).dir(-1);
+    console.log(this.demo6);
   }
 
   ngOnDestroy(): void {

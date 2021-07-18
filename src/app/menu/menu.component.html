@@ -8,7 +8,7 @@
           <router-outlet></router-outlet>
         </div>
       </nz-content>
-      <nz-header>
+      <nz-header *ngIf="isCollapsed">
         <app-home-button></app-home-button>
       </nz-header>
     </nz-layout>
