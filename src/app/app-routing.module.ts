@@ -6,9 +6,11 @@ import { ChansonPhotosComponent } from './pages/chanson-photos/chanson-photos.co
 import { MenuSaisonsComponent } from './pages/menu-saisons/menu-saisons.component';
 import { PageTitreComponent } from './pages/page-titre/page-titre.component';
 import { MenuChapitresComponent } from './pages/menu-chapitres/menu-chapitres.component';
+import { AudioPlayerComponent } from './pages/audio-player/audio-player.component';
 
 const routes: Routes = [
   { path: '', component: PageTitreComponent },
+  { path: 'player', component: AudioPlayerComponent},
   { path: 'menu', component: MenuComponent, children: [
     { path: 'chapitres', component: MenuChapitresComponent},
   { path: 'chanson', component: ChansonChapitreComponent },
