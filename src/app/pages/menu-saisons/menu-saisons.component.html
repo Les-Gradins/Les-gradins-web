@@ -2,26 +2,25 @@
     <!-- <h2 id="demo6">{{ms}}</h2> -->
     <div id="tl"class="tracklist">
         <!-- <h2 id="demo6">{{ms}}</h2> -->
-        <h2 id="demo6">ÉTÉ | AUTOMNE | HIVER | PRINTEMPS |</h2>
+        <h2 id="demo6">HIVER---------------------------------PRINTEMPS---------------------------------ÉTÉ---------------------------------AUTOMNE---------------------------------</h2>
+        <h2 id="demo7">YO KODAK! (VI) | IMMORTEL | L'ÉQUIPE | CARNAVAL (IX) | DANS LE VENT | OLYMPE | LES GRADINS (XII) | REPEAT | MOIMAN | SUNSHINE (III) | CARRÉ SAINT-LOUIS | VRAI |</h2>
     </div>
     <div class="buttons">
-    <button class='button' type='button'>
-    press to scan fingerprint
-    <svg>
-      <image width="100%" height="100%" xlink:href="/assets/logo-Kodak.png" />
-    </svg>
+        <button class='button' type='button'>
+        <svg id="logo">
+            <image width="100%" height="100%" xlink:href="/assets/logo-Kodak.png" />
+        </svg>
 
-    </button>
-    <div class='selected-song'>
-
-        <button class="button-chanson" (click)="getPrec()" margin="30px"><i nz-icon nzType="left"></i></button>
-        <div class='button-chanson' (click)="selectSong()">
-            <div class='flex-item'> {{saisonChoisie.nomSaison}} </div>
+        </button>
+        
+        <div class='selected-song'>
+            <button class="button-chanson" (click)="getPrec()" margin="30px"><i nz-icon nzType="left"></i></button>
+                <div class='button-chanson' (click)="selectSong()">
+                    <div class='flex-item'> JOUER </div>
+                </div>
+            <button class="button-chanson" (click)="getNext()" margin="30px"><i nz-icon nzType="right"></i></button>
         </div>
-        <button class="button-chanson" (click)="getNext()" margin="30px"><i nz-icon nzType="right"></i></button>
     </div>
-
-</div>
 
 
 </body>

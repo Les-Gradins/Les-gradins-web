@@ -4,4 +4,5 @@ export interface Saison {
     photosPath: string;
     tracks: Array<string>;
     casenumber: number;
+    rotationDeg: number;
 }

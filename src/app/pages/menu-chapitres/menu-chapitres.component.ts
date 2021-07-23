@@ -35,11 +35,11 @@ export class MenuChapitresComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.demo6 = new CircleType(document.getElementById('demo6')).dir(-1);
+
     if (window.matchMedia('(max-width: 600px)').matches) {
-      console.log('h');
-      this.transformString = 'translateY(-17.5vh) ';
+      this.transformString = 'translateY(-17vh) ';
     } else {
-      this.transformString = 'translateY(-40%) ';
+      this.transformString = 'translateY(-26vh) ';
     }
     this.rotateText();
   }
@@ -51,7 +51,7 @@ export class MenuChapitresComponent implements OnInit, OnDestroy {
   rotateText(): void {
     const elem = document.getElementById('demo6');
     const s = this.transformString + 'rotate(' + this.rotationDeg + 'deg)';
-
+    console.log(s);
     elem.style.transform = s;
 
     this.getIndex();
@@ -63,7 +63,7 @@ export class MenuChapitresComponent implements OnInit, OnDestroy {
     }
   }
 
-  rotateLogo():void {
+  rotateLogo(): void {
     const logo = document.getElementById('logo');
 
     logo.style.transform  = 'rotate(' + this.logoRotationDeg + 'deg)';
@@ -106,7 +106,9 @@ export class MenuChapitresComponent implements OnInit, OnDestroy {
 
   async selectSong(): Promise<any>{
     this.chansonService.setSelectedSong(this.chansonChoisie).then(() => {
-      this.router.navigateByUrl('menu/chanson');
+      this.logoRotationDeg = 0;
+      this.rotateLogo();
+      setTimeout(() => this.router.navigateByUrl('menu/chanson'), 1450);
     });
   }
 
