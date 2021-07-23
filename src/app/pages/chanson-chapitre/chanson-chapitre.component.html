@@ -1,9 +1,7 @@
 <div class='button-chanson'>
-    <div class="button-chanson" (click)="getPrec()" margin="30px"><i nz-icon nzType="left"></i></div>
-    
+    <div (click)="getPrec()" margin="30px"><i nz-icon nzType="left"></i></div>
     <div class='flex-item'> {{chanson.trackname}} </div>
-    <div class="button-chanson" (click)="getNext()" margin="30px"><i nz-icon nzType="right"></i></div>
-
+    <div (click)="getNext()" margin="30px"><i nz-icon nzType="right"></i></div>
 </div>
 <div id="BD"class='BD'>
         <div class='case' *ngFor="let i of index">
