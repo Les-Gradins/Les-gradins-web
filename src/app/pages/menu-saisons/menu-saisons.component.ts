@@ -80,6 +80,7 @@ export class MenuSaisonsComponent implements OnInit, OnDestroy {
   hideTracks(): void {
     const elem = document.getElementById('demo7');
 
+    // tslint:disable-next-line: prefer-for-of
     for (let i = 0 ; i < elem.children[0].children.length; i++){
         const c = elem.children[0].children[i] as HTMLElement;
         c.style.fontWeight = 'lighter' ;
