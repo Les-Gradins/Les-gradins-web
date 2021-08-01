@@ -1,6 +1,10 @@
-<p>chanson-photos works!</p>
-<div class="PHOTOS">
-    <div class='photo' *ngFor="let i of index">
-        <img src="{{saison.photosPath}}_{{i}}.jpg"/>
+<body>
+    <div class="PHOTOS">
+        <div class='etiquette'>
+            <img src={{saison.photosPath}}.svg>
+        </div>
+        <div class='photo' *ngFor="let i of index">
+            <img src="{{saison.photosPath}}_{{i}}.jpg"/>
+        </div>
     </div>
-</div>
+</body>
