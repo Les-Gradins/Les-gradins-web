@@ -14,42 +14,105 @@ import { Track } from 'ngx-audio-player';
 export class MenuChapitresComponent implements OnInit, OnDestroy {
   public chansonChoisie: Chanson | undefined;
   private sub: Subscription;
-  public ms = '';
+  public ms = 'YO KODAK! (VI) | IMMORTEL | L\'ÉQUIPE | CARNAVAL (IX) | DANS LE VENT | OLYMPE | LES GRADINS (XII) | REPEAT | MOIMAN | SUNSHINE (III) | CARRÉ SAINT-LOUIS | VRAI |';
   public demo6: CircleType;
+  public rotationDeg = 16;
+  public logoRotationDeg = 0;
+  public transformString = '';
 
   constructor(private chansonService: ChansonService, private router: Router) {
     this.sub = this.chansonService.getSelectedSong().subscribe((chanson) => {
       this.chansonChoisie = chanson;
+
+      if (this.rotationDeg === 16 && this.chansonChoisie.tracknumber !== 1){
+        this.rotationDeg = this.chansonChoisie.rotDeg;
+      }
+
     });
-    console.log(this.ms);
 
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.demo6 = new CircleType(document.getElementById('demo6')).dir(-1);
+
+    if (window.matchMedia('(max-width: 600px)').matches) {
+      this.transformString = 'translateY(-17vh) ';
+    } else {
+      this.transformString = 'translateY(-26vh) ';
+    }
+    this.rotateText();
+  }
 
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
 
-  getNext(): void {
-    const next: number =
-      this.chansonChoisie.tracknumber === 12
-        ? 0
-        : this.chansonChoisie.tracknumber;
-    this.chansonChoisie = Tracklist[next];
+  rotateText(): void {
+    const elem = document.getElementById('demo6');
+    const s = this.transformString + 'rotate(' + this.rotationDeg + 'deg)';
+    console.log(s);
+    elem.style.transform = s;
+
+    this.getIndex();
+    let i = this.getIndex();
+    const lastIndex = i + this.chansonChoisie.trackname.length;
+    for (i ; i <= lastIndex; i++){
+      const c = elem.children[0].children[i] as HTMLElement;
+      c.style.fontWeight = 'bolder' ;
+    }
   }
 
-  getPrec(): void {
-    const prec: number =
-      this.chansonChoisie.tracknumber === 1
-        ? 11
-        : this.chansonChoisie.tracknumber - 2;
+  rotateLogo(): void {
+    const logo = document.getElementById('logo');
+
+    logo.style.transform  = 'rotate(' + this.logoRotationDeg + 'deg)';
+  }
+
+  unselectChanson(): void {
+    const elem = document.getElementById('demo6');
+    let i = this.getIndex();
+    const lastIndex = i + this.chansonChoisie.trackname.length;
+
+    for (i ; i <= lastIndex; i++){
+      const s = elem.children[0].children[i] as HTMLElement;
+      s.style.fontWeight = 'lighter' ;
+    }
+  }
+  getNext(): void{
+    const next: number = this.chansonChoisie.tracknumber === 12 ? 0 : this.chansonChoisie.tracknumber;
+    const lrd = this.chansonChoisie.tracknumber === 1 ? 16 : this.chansonChoisie.rotDeg;
+    this.logoRotationDeg -= 30;
+
+    this.unselectChanson();
+    this.chansonChoisie = Tracklist[next];
+    this.rotationDeg += (this.chansonChoisie.rotDeg - lrd);
+    this.rotateText();
+    this.rotateLogo();
+
+  }
+
+  getPrec(): void{
+    const prec: number = this.chansonChoisie.tracknumber === 1 ? 11 : this.chansonChoisie.tracknumber - 2;
+    const lrd = this.chansonChoisie.rotDeg;
+    this.logoRotationDeg += 30;
+
+    this.unselectChanson();
     this.chansonChoisie = Tracklist[prec];
+    this.rotationDeg += ((this.chansonChoisie.tracknumber === 1 ? 16 : this.chansonChoisie.rotDeg) - lrd);
+    this.rotateText();
+    this.rotateLogo();
   }
 
   async selectSong(): Promise<any> {
     this.chansonService.setSelectedSong(this.chansonChoisie).then(() => {
-      this.router.navigateByUrl('menu/chanson');
+      this.logoRotationDeg = 0;
+      this.rotateLogo();
+      setTimeout(() => this.router.navigateByUrl('menu/chanson'), 1450);
     });
   }
+
+  getIndex(): number {
+    return this.ms.indexOf(this.chansonChoisie.trackname);
+  }
+
 }

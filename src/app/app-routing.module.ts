@@ -13,9 +13,9 @@ const routes: Routes = [
   { path: 'player', component: AudioPlayerComponent},
   { path: 'menu', component: MenuComponent, children: [
     { path: 'chapitres', component: MenuChapitresComponent},
-  { path: 'chanson', component: ChansonChapitreComponent },
-  { path: 'photo', component: ChansonPhotosComponent },
-  { path: 'saisons', component: MenuSaisonsComponent },
+    { path: 'chanson', component: ChansonChapitreComponent },
+    { path: 'photo', component: ChansonPhotosComponent },
+    { path: 'saisons', component: MenuSaisonsComponent },
   ]}
 ];
 

@@ -4,4 +4,5 @@ export interface Chanson {
     photosPath: string;
     bdPath: string;
     casenumber: number;
+    rotDeg: number;
 }

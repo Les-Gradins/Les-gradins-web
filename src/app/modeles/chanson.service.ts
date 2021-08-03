@@ -11,7 +11,7 @@ import { Saisons } from 'src/saisons';
 export class ChansonService {
   private chansonActuelle: BehaviorSubject<Chanson> = new BehaviorSubject<Chanson>(Tracklist[0]);
   private saisonActuelle: BehaviorSubject<Saison> = new BehaviorSubject<Saison>(Saisons[0]);
-  private personnage: BehaviorSubject<string> = new BehaviorSubject<string>('Kirouac');
+  private personnage: BehaviorSubject<string> = new BehaviorSubject<string>('');
 
   getSelectedSong(): Observable<Chanson>{
     return this.chansonActuelle.asObservable();

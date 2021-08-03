@@ -5,9 +5,10 @@
         {
             saisonIndex: 1,
             nomSaison: 'ÉTÉ',
-            photosPath: '/assets/LES_GRADINS_PHOTOS_WEB/ÉTÉ/ÉTÉ',
+            photosPath: '/assets/LES_GRADINS_PHOTOS_WEB/ETE/ETE',
             tracks: ['REPEAT', 'MOIMAN', 'SUNSHINE (III)'],
-            casenumber: 26
+            casenumber: 26,
+            rotationDeg: 371.5
         },
 
         {
@@ -15,7 +16,8 @@
             nomSaison: 'AUTOMNE',
             photosPath: '/assets/LES_GRADINS_PHOTOS_WEB/AUTOMNE/AUTOMNE',
             tracks: ['CARRÉ SAINT-LOUIS', 'VRAI', 'YO KODAK! (VI)'],
-            casenumber: 23
+            casenumber: 23,
+            rotationDeg: 99.2
         },
 
         {
@@ -23,15 +25,17 @@
             nomSaison: 'HIVER',
             photosPath: '/assets/LES_GRADINS_PHOTOS_WEB/HIVER/HIVER',
             tracks: ['IMMORTEL', 'L\'ÉQUIPE', 'CARNAVAL (IX)'],
-            casenumber: 25
+            casenumber: 25,
+            rotationDeg: 189
         },
 
         {
             saisonIndex: 4,
             nomSaison: 'PRINTEMPS',
             photosPath: '/assets/LES_GRADINS_PHOTOS_WEB/PRINTEMPS/PRINTEMPS',
-            tracks: ['DANS LE VENT', 'OLYMPE', 'LES GRADINS'],
-            casenumber: 19
+            tracks: ['DANS LE VENT', 'OLYMPE', 'LES GRADINS (XII)'],
+            casenumber: 19,
+            rotationDeg: 281.5
         }
 
      ];
