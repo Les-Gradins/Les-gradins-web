@@ -5,7 +5,7 @@
         {
             saisonIndex: 1,
             nomSaison: 'ÉTÉ',
-            photosPath: '/assets/LES_GRADINS_PHOTOS_WEB/ÉTÉ/ÉTÉ',
+            photosPath: '/assets/LES_GRADINS_PHOTOS_WEB/ETE/ETE',
             tracks: ['REPEAT', 'MOIMAN', 'SUNSHINE (III)'],
             casenumber: 26,
             rotationDeg: 371.5
