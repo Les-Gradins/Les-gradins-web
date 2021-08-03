@@ -3,4 +3,6 @@ export interface Chanson {
     trackname: string;
     photosPath: string;
     bdPath: string;
+    casenumber: number;
+    rotDeg: number;
 }
