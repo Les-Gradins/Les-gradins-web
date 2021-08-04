@@ -46,20 +46,9 @@ export class MenuSaisonsComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.demo6 = new CircleType(document.getElementById('demo6')).dir(-1);
-    this.demo7 = new CircleType(document.getElementById('demo7')).dir(-1);
-
-    if (window.matchMedia('(max-width: 600px)').matches) {
-      this.transformChansonString = 'translateY(-22vh) ';
-      this.transformSaisonString = 'translateY(-19vh) ';
-    } else {
-      this.transformChansonString = 'translateY(-27vh) ';
-      this.transformSaisonString = 'translateY(-25vh) ';
-    }
-    this.hideSpace();
-    this.hideTracks();
-    this.rotateText();
-    this.rotateLogo();
+    setTimeout(() => {
+      this.init();
+    }, 100);
   }
 
   ngOnDestroy(): void {
@@ -85,12 +74,7 @@ export class MenuSaisonsComponent implements OnInit, OnDestroy {
         const c = elem.children[0].children[i] as HTMLElement;
         c.style.fontWeight = 'lighter' ;
     }
-
-
-
   }
-
-
 
   hideSelectedTracks(): void {
     const elem = document.getElementById('demo7');
@@ -209,5 +193,24 @@ export class MenuSaisonsComponent implements OnInit, OnDestroy {
   getChansonStringIndex(c: string): number {
     return this.ms.indexOf(c);
   }
+
+  init(): void {
+    console.log("init");
+    this.demo6 = new CircleType(document.getElementById('demo6')).dir(-1);
+    this.demo7 = new CircleType(document.getElementById('demo7')).dir(-1);
+
+    if (window.matchMedia('(max-width: 600px)').matches) {
+      this.transformChansonString = 'translateY(-22vh) ';
+      this.transformSaisonString = 'translateY(-19vh) ';
+    } else {
+      this.transformChansonString = 'translateY(-27vh) ';
+      this.transformSaisonString = 'translateY(-25vh) ';
+    }
+    this.hideSpace();
+    this.hideTracks();
+    this.rotateText();
+    this.rotateLogo();
+  }
+
 
 }
