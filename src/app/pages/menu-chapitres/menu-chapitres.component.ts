@@ -34,14 +34,9 @@ export class MenuChapitresComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this.demo6 = new CircleType(document.getElementById('demo6')).dir(-1);
-
-    if (window.matchMedia('(max-width: 600px)').matches) {
-      this.transformString = 'translateY(-17vh) ';
-    } else {
-      this.transformString = 'translateY(-26vh) ';
-    }
-    this.rotateText();
+    setTimeout(() => {
+      this.init();
+    }, 100);
   }
 
   ngOnDestroy(): void {
@@ -114,6 +109,17 @@ export class MenuChapitresComponent implements OnInit, OnDestroy {
 
   getIndex(): number {
     return this.ms.indexOf(this.chansonChoisie.trackname);
+  }
+
+  init(): void {
+    this.demo6 = new CircleType(document.getElementById('demo6')).dir(-1);
+
+    if (window.matchMedia('(max-width: 600px)').matches) {
+      this.transformString = 'translateY(-17vh) ';
+    } else {
+      this.transformString = 'translateY(-26vh) ';
+    }
+    this.rotateText();
   }
 
 }
