@@ -1,5 +1,5 @@
 import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ChansonService } from '../modeles/chanson.service';
 
@@ -11,6 +11,7 @@ import { ChansonService } from '../modeles/chanson.service';
 export class MenuComponent implements OnInit, OnChanges, OnDestroy {
   personnage: string;
   sub: Subscription;
+  routeSub: Subscription;
   isCollapsed = true;
 
   constructor(private chansonService: ChansonService, private router: Router) {
@@ -19,10 +20,17 @@ export class MenuComponent implements OnInit, OnChanges, OnDestroy {
       this.personnage = p;
       if (p === 'Kirouac'){
         this.router.navigateByUrl('menu/chapitres');
-      } else {
+      } else if (p === 'Kodak') {
         this.router.navigateByUrl('menu/saisons');
+      } else {
+        this.router.navigateByUrl('/');
       }
 
+    });
+    this.routeSub = router.events.subscribe((val: NavigationEnd) => {
+      if (val.url === '/menu' ){
+        router.navigateByUrl('/');
+      }
     });
   }
 
@@ -37,10 +45,12 @@ export class MenuComponent implements OnInit, OnChanges, OnDestroy {
   }
 
   ngOnInit(): void {
+
   }
 
   ngOnDestroy(): void{
     this.sub.unsubscribe();
+    this.routeSub.unsubscribe();
   }
 
 }
