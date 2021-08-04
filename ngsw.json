@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1628044354832,
+  "timestamp": 1628044628097,
   "index": "/Les-gradins-web/index.html",
   "assetGroups": [
     {
@@ -310,8 +310,8 @@
         "/Les-gradins-web/assets/LES_GRADINS_PHOTOS_WEB/PRINTEMPS/PRINTEMPS_7.jpg",
         "/Les-gradins-web/assets/LES_GRADINS_PHOTOS_WEB/PRINTEMPS/PRINTEMPS_8.jpg",
         "/Les-gradins-web/assets/LES_GRADINS_PHOTOS_WEB/PRINTEMPS/PRINTEMPS_9.jpg",
-        "/Les-gradins-web/assets/avatar_kirouac.png",
-        "/Les-gradins-web/assets/avatar_kodak.png",
+        "/Les-gradins-web/assets/avatar_Kirouac.png",
+        "/Les-gradins-web/assets/avatar_Kodak.png",
         "/Les-gradins-web/assets/icons/icon-128x128.png",
         "/Les-gradins-web/assets/icons/icon-144x144.png",
         "/Les-gradins-web/assets/icons/icon-152x152.png",
@@ -614,8 +614,8 @@
     "/Les-gradins-web/assets/LES_GRADINS_PHOTOS_WEB/PRINTEMPS/PRINTEMPS_7.jpg": "02afdb5759531b89685a39e05b385f84e60332e4",
     "/Les-gradins-web/assets/LES_GRADINS_PHOTOS_WEB/PRINTEMPS/PRINTEMPS_8.jpg": "9051e984304bea3e960f0c870e831a7be4c1b8c8",
     "/Les-gradins-web/assets/LES_GRADINS_PHOTOS_WEB/PRINTEMPS/PRINTEMPS_9.jpg": "579d712d2d82285bb9ffc1d95329c791958ff59f",
-    "/Les-gradins-web/assets/avatar_kirouac.png": "6217d57c1945d3f8a1432b3ee3abaf1684167cda",
-    "/Les-gradins-web/assets/avatar_kodak.png": "6631aa323907637b408d6f05bc703aa2608b0af1",
+    "/Les-gradins-web/assets/avatar_Kirouac.png": "6217d57c1945d3f8a1432b3ee3abaf1684167cda",
+    "/Les-gradins-web/assets/avatar_Kodak.png": "6631aa323907637b408d6f05bc703aa2608b0af1",
     "/Les-gradins-web/assets/icons/icon-128x128.png": "dae3b6ed49bdaf4327b92531d4b5b4a5d30c7532",
     "/Les-gradins-web/assets/icons/icon-144x144.png": "b0bd89982e08f9bd2b642928f5391915b74799a7",
     "/Les-gradins-web/assets/icons/icon-152x152.png": "7479a9477815dfd9668d60f8b3b2fba709b91310",
