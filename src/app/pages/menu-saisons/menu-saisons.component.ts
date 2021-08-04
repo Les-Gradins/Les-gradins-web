@@ -195,7 +195,6 @@ export class MenuSaisonsComponent implements OnInit, OnDestroy {
   }
 
   init(): void {
-    console.log("init");
     this.demo6 = new CircleType(document.getElementById('demo6')).dir(-1);
     this.demo7 = new CircleType(document.getElementById('demo7')).dir(-1);
 
