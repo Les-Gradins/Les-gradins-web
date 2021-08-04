@@ -210,6 +210,4 @@ export class MenuSaisonsComponent implements OnInit, OnDestroy {
     this.rotateText();
     this.rotateLogo();
   }
-
-
 }
