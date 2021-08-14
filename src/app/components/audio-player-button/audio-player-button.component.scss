@@ -1,26 +1,57 @@
-.perso{
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    align-items: center;
-    font-family:"Eurostile-extended";
-    font-size: large;
-    font-style: italic;
-    text-shadow: black;
-    background: #f1f3f6;
-    padding-bottom: 1%;
-    padding-right: 10px;
+.perso {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  font-family: "Eurostile-extended";
+  font-size: large;
+  font-style: italic;
+  text-shadow: black;
+  background: #f1f3f6;
+  padding-bottom: 1%;
+  padding-right: 10px;
 }
 
 .button {
+  position: relative;
+  margin-right: 20px;
+  margin-left: 20px;
+  width: 5vw;
+  height: 5vw;
+  background: #f1f3f6;
+  border-radius: 50%;
+  box-shadow: inset 0 0 15px rgba(55, 84, 170, 0),
+    inset 0 0 20px rgba(255, 255, 255, 0),
+    10px 10px 18px rgba(55, 84, 170, 0.15), -10px -10px 22px white,
+    inset 0px 0px 4px rgba(255, 255, 255, 0.2);
+  transition: box-shadow 0.7s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+  font-size: 0;
+}
+
+@media only screen and (max-width: 600px) {
+
+  //screen and (orientation:landscape) {
+  /* Your CSS Here*/
+  .app-layout {
+    height: 100vh;
+    // width: 100vh;
+  }
+
+  .button {
     position: relative;
-    margin-right: 20px;
-    margin-left: 20px;
-    width: 5vw;
-    height: 5vw;
+    width: 15vw;
+    height: 15vw;
     background: #f1f3f6;
     border-radius: 50%;
-    box-shadow: inset 0 0 15px rgba(55, 84, 170, 0), inset 0 0 20px rgba(255, 255, 255, 0), 10px 10px 18px rgba(55, 84, 170, 0.15), -10px -10px 22px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 15px rgba(55, 84, 170, 0),
+      inset 0 0 20px rgba(255, 255, 255, 0),
+      10px 10px 18px rgba(55, 84, 170, 0.15), -10px -10px 22px white,
+      inset 0px 0px 4px rgba(255, 255, 255, 0.2);
     transition: box-shadow 0.7s ease-in-out;
     display: flex;
     align-items: center;
@@ -28,78 +59,120 @@
     outline: none;
     border: none;
     font-size: 0;
-}
-
-@media only screen and (max-width: 600px) { //screen and (orientation:landscape) {
-    /* Your CSS Here*/
-    .app-layout {
-      height: 100vh;
-      // width: 100vh;
-    }
-  
-    .button {
-      position: relative;
-      width: 15vw;
-      height: 15vw;
-      background: #f1f3f6;
-      border-radius: 50%;
-      box-shadow: inset 0 0 15px rgba(55, 84, 170, 0), inset 0 0 20px rgba(255, 255, 255, 0), 10px 10px 18px rgba(55, 84, 170, 0.15), -10px -10px 22px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2);
-      transition: box-shadow 0.7s ease-in-out;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      outline: none;
-      border: none;
-      font-size: 0;
-      }
-
   }
-
-
-  h1 {
-    color: #555;
-    font: bold 12px 'helvetica neue', helvetica, arial, sans-serif;
-    left: 0;
-    margin: 20px 0 0 0;
-    position: absolute;
-    top: 50%;
-    text-align: center;
-    width: 100%;   
 }
 
-#bars {
-    height: 50%;
-    left: -25%;
-    position: relative;
+h1 {
+  color: #555;
+  font: bold 12px "helvetica neue", helvetica, arial, sans-serif;
+  left: 0;
+  margin: 20px 0 0 0;
+  position: absolute;
+  top: 50%;
+  text-align: center;
+  width: 100%;
 }
 
-.bar {
-   background: #666;
-    bottom: 1px;
-    height: 3px;
-    position: absolute;
-    width: 3px;      
-    animation: sound 0ms -800ms linear infinite alternate;
-}
-
-@keyframes sound {
-    0% {
-       opacity: .35;
-        height: 3px; 
-    }
-    100% {
-        opacity: 1;       
-        height: 28px;        
-    }
-}
-
-.bar:nth-child(1)  { left: 1px; animation-duration: 674ms; }
-.bar:nth-child(2)  { left: 5px; animation-duration: 633ms; }
-.bar:nth-child(3)  { left: 9px; animation-duration: 607ms; }
-.bar:nth-child(4)  { left: 13px; animation-duration: 658ms; }
-.bar:nth-child(5)  { left: 17px; animation-duration: 600ms; }
-.bar:nth-child(6)  { left: 21px; animation-duration: 627ms; }
-.bar:nth-child(7)  { left: 25px; animation-duration: 641ms; }
-.bar:nth-child(8)  { left: 29px; animation-duration: 619ms; }
-.bar:nth-child(9)  { left: 33px; animation-duration: 687ms; }
-.bar:nth-child(10) { left: 37px; animation-duration: 642ms; }
+@keyframes move1 {
+    0% { height: 5px; }
+    25% { height: 20px; }
+    75% { height: 15px; }
+    100% { height: 5px; }
+  }
+  
+  @keyframes move2 {
+    0% { height: 2px; }
+    25% { height: 12px; }
+    75% { height: 20px; }
+    100% { height: 2px; }
+  }
+  
+  @keyframes move3 {
+    0% { height: 7px; }
+    25% { height: 2px; }
+    75% { height: 20px; }
+    100% { height: 7px; }
+  }
+  
+  @keyframes move4 {
+    0% { height: 0px; }
+    25% { height: 10px; }
+    75% { height: 25px; }
+    100% { height: 0px; }
+  }
+  
+  @keyframes move5 {
+    0% { height: 12px; }
+    25% { height: 5px; }
+    75% { height: 22px; }
+    100% { height: 12px; }
+  }
+  
+  
+  #equalizer {
+    float: left;
+    display: block;
+    height: 10%;
+    margin-left: 41%;
+    -moz-animation: flicker 1s infinite ease-in-out;
+    -webkit-animation: flicker 1s infinite ease-in-out;
+  }
+  
+  .bars {
+    list-style: none;
+  }
+  
+  .bars li {
+    display: inline-block;
+    width: 0.2em;
+    margin-right: -1.5px;
+  }
+  
+  .bars:first-child {
+    margin-left: 0;
+  }
+  
+  .bars:last-child {
+    margin-right: 0;
+  }
+  
+  .bar1 {
+    height: 100px;
+    background-color: #B52F1C;
+    -moz-animation: move1 infinite 1s linear;
+    -webkit-animation: move1 infinite 1s linear;
+  }
+  
+  .bar2 {
+    height: 200px;
+    background-color: #CF5110;
+    -moz-animation: move2 infinite 2s linear;
+    -webkit-animation: move2 infinite 2s linear;
+  }
+  
+  .bar3 {
+    height: 150px;
+    background-color: #E27729;
+  
+    -moz-animation: move3 infinite 1s linear;
+    -webkit-animation: move3 infinite 1s linear;
+  }
+  
+  .bar4 {
+    height: 75px;
+    background-color: #E6900A;
+    -moz-animation: move4 infinite 2s linear;
+    -webkit-animation: move4 infinite 2s linear;
+  }
+  
+  .bar5 {
+    height: 5px;
+    background-color: #EFA00D;
+    -moz-animation: move5 infinite 1s linear;
+    -webkit-animation: move5 infinite 1s linear;
+  }
+  
+  .hidden {
+    height: 30px;
+    box-shadow: none !important;
+  }

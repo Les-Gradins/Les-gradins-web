@@ -1,12 +1,9 @@
 <div class='perso'>
-    <button class='button' type='button' (click)="afficherAudioPlayer()">
-        <div id="bars">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-    </button>
-  </div>
+  <button class='button' type='button' (click)="afficherAudioPlayer()">
+    <img src="assets/audio/music.png" width="30px"/>
+  </button>
+</div>
+
+<div  @fadeAnimation *ngIf=isAudioplayerToggled>
+  <app-audio-player></app-audio-player>
+</div>

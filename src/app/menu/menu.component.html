@@ -8,10 +8,8 @@
           <router-outlet></router-outlet>
         </div>
       </nz-content>
-      <nz-header *ngIf="isCollapsed">
-        <app-home-button></app-home-button>
-      <nz-footer>
+      <nz-footer *ngIf="isCollapsed">
         <app-audio-player-button></app-audio-player-button>
+        <app-home-button onclic></app-home-button>
       </nz-footer>
-    </nz-layout>
   </nz-layout>
