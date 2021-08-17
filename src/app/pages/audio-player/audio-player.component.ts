@@ -17,12 +17,12 @@ export class AudioPlayerComponent implements OnInit {
       cover: '/assets/cover.jpg',
     },
     {
-      url: '/assets/audio/02-Repeat.m4a',
+      url: '/assets/audio/02_Repeat.m4a',
       title: '2 - Repeat',
       cover: '/assets/cover.jpg',
     },
     {
-      url: '/assets/audio/03-Moiman.m4a',
+      url: '/assets/audio/03_Moiman.m4a',
       title: '3 - Moi-man',
       cover: '/assets/cover.jpg',
 

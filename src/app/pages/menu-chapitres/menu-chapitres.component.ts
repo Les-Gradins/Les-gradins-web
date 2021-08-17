@@ -5,12 +5,14 @@ import { Tracklist } from 'src/tracklist';
 import { ChansonService } from '../../modeles/chanson.service';
 import { Chanson } from '../../modeles/chanson';
 import { Track } from 'ngx-audio-player';
-import CircleType from 'circletype';
+import { CircleType } from 'circletype';
+import { fadeAnimation } from 'src/app/app.animations';
 
 @Component({
   selector: 'app-menu-chapitres',
   templateUrl: './menu-chapitres.component.html',
   styleUrls: ['./menu-chapitres.component.scss'],
+  animations: [fadeAnimation]
 })
 export class MenuChapitresComponent implements OnInit, OnDestroy {
   public chansonChoisie: Chanson | undefined;
