@@ -73,6 +73,18 @@ nz-header {
     align-content: flex-end;
 }
 
+nz-footer {
+    padding: 0;
+    width: 100vw;
+    height: max-content;
+    z-index: 2;
+    background-color:#f1f3f6 ;
+    flex-direction: row-reverse;
+    align-content: flex-end;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
 // .app-header {
 //     position: relative;
 //     height: 64px;
