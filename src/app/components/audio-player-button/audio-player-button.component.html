@@ -1,9 +1,11 @@
-<div class='perso'>
-  <button class='button' type='button' (click)="afficherAudioPlayer()">
-    <img src="assets/audio/music.png" width="30px"/>
-  </button>
-</div>
+<body>
+  <div class='perso'>
+    <button class='button' type='button' (click)="afficherAudioPlayer()">
+      <img src="assets/audio/music.png" width="30px"/>
+    </button>
+  </div>
 
-<div  @fadeAnimation *ngIf=isAudioplayerToggled>
-  <app-audio-player></app-audio-player>
-</div>
+  <div  @fadeAnimation *ngIf=isAudioplayerToggled>
+    <app-audio-player></app-audio-player>
+  </div>
+</body>
