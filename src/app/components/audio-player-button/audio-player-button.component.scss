@@ -1,11 +1,12 @@
 body{
   display:flex;
   flex-direction: row;
+  background: #f1f3f6;
 }
 .perso {
   display: flex;
   flex-direction: row;
-  width: 100%;
+  width: max-content;
   align-items: center;
   font-family: "Eurostile-extended";
   font-size: large;
@@ -35,6 +36,22 @@ body{
   outline: none;
   border: none;
   font-size: 0;
+}
+.player {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 7vw;
+  margin-left: 1vw;
+  margin-bottom: 0.3vw;
+  padding-right: 2vw;
+  height: 5.7vw;
+  width: max-content;
+  
+  background: #f1f3f6;
+  border-radius: 50px;
+  box-shadow: inset 7px 7px 15px rgba(55, 84, 170, 0.15), inset -7px -7px 20px white, 0px 0px 4px rgba(255, 255, 255, 0.2);
 }
 
 @media only screen and (max-width: 600px) {
