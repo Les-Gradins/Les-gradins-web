@@ -10,7 +10,7 @@ import { fadeAnimation } from 'src/app/app.animations';
 })
 export class AudioPlayerButtonComponent implements OnInit {
 
-  public isAudioplayerToggled = false
+  public isAudioplayerToggled = false;
 
   constructor(private router: Router) { }
 

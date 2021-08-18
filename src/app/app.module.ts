@@ -28,7 +28,7 @@ import { MenuChapitresComponent } from './pages/menu-chapitres/menu-chapitres.co
 import { ChansonChapitreComponent } from './pages/chanson-chapitre/chanson-chapitre.component';
 import { MenuComponent } from './menu/menu.component';
 import { ChansonService } from './modeles/chanson.service';
-import { AngMusicPlayerModule } from  'ang-music-player';
+import { AngMusicPlayerModule } from 'ang-music-player';
 import { SoundbarsComponent } from './components/soundbars/soundbars.component';
 import { AudioPlayerButtonComponent } from './components/audio-player-button/audio-player-button.component';
 import { AudioPlayerComponent } from './pages/audio-player/audio-player.component';

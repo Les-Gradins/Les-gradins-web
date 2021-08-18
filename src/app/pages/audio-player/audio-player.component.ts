@@ -12,7 +12,7 @@ export class AudioPlayerComponent implements OnInit {
   chanson: Chanson|undefined;
   sub: Subscription;
   public audioList;
-  constructor(private chansonService: ChansonService) { 
+  constructor(private chansonService: ChansonService) {
     this.sub = this.chansonService.getSelectedSong().subscribe(title => {
       this.chanson = title;
       this.audioList = [
@@ -57,7 +57,7 @@ export class AudioPlayerComponent implements OnInit {
     }, 100);
   }
 
-  init():void {
+  init(): void {
     const controls = document.getElementsByClassName('controls');
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < controls.length; i++) {
