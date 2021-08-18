@@ -5,7 +5,7 @@ import { Tracklist } from 'src/tracklist';
 import { ChansonService } from '../../modeles/chanson.service';
 import { Chanson } from '../../modeles/chanson';
 import { Track } from 'ngx-audio-player';
-import { CircleType } from 'circletype';
+import CircleType from 'circletype';
 import { fadeAnimation } from 'src/app/app.animations';
 
 @Component({
