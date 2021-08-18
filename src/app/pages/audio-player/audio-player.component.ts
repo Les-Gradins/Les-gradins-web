@@ -98,25 +98,22 @@ export class AudioPlayerComponent implements OnInit {
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < cover.length; i++) {
       const e = cover[i] as HTMLElement;
-      e.style.maxHeight = '4vw';
-      e.style.maxWidth = '4vw';
-      // e.style.color = 'black'
+      if ((cover[i].parentNode as HTMLElement).className  === 'cover ng-star-inserted' ){
+        e.style.maxHeight = '4vw';
+        e.style.maxWidth = '4vw';
+      }
     }
 
     const wrapper = document.getElementsByClassName('wrapper');
     for (let i = 0; i < cover.length; i++) {
       const e = wrapper[i] as HTMLElement;
       e.style.height = 'max-content';
-      // e.style.width = 'max-content';
-      // e.style.color = 'black'
     }
 
     const container = document.getElementsByClassName('container');
     for (let i = 0; i < cover.length; i++) {
       const e = container[i] as HTMLElement;
       e.style.alignContent = 'center';
-      // e.style.width = 'max-content';
-      // e.style.color = 'black'
     }
 
     // const slider = document.getElementsByClassName('slider');
