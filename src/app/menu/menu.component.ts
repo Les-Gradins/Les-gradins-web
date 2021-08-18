@@ -12,7 +12,7 @@ export class MenuComponent implements OnInit, OnChanges, OnDestroy {
   personnage: string;
   sub: Subscription;
   routeSub: Subscription;
-  isCollapsed = true;
+  isCollapsed: Boolean = false;
 
   constructor(private chansonService: ChansonService, private router: Router) {
     this.sub = this.chansonService.getSelectedPersonnage().subscribe(p => {
@@ -30,6 +30,10 @@ export class MenuComponent implements OnInit, OnChanges, OnDestroy {
     this.routeSub = router.events.subscribe((val: NavigationEnd) => {
       if (val.url === '/menu' ){
         router.navigateByUrl('/');
+      } else if (val.url === '/menu/photo' || val.url === '/menu/chanson' ) {
+        this.isCollapsed = true;
+      } else if (val.url === '/menu/chapitres' || val.url === '/menu/saisons' ){
+        this.isCollapsed = false;
       }
     });
   }
@@ -41,7 +45,7 @@ export class MenuComponent implements OnInit, OnChanges, OnDestroy {
     } else {
       this.router.navigateByUrl('menu/saisons');
     }
-    this.isCollapsed = true;
+    // this.isCollapsed = true;
   }
 
   ngOnInit(): void {

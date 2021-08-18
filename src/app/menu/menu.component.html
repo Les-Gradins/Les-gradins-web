@@ -8,7 +8,7 @@
           <router-outlet></router-outlet>
         </div>
       </nz-content>
-      <nz-footer *ngIf="isCollapsed">
+      <nz-footer @fadeAnimation *ngIf="isCollapsed">
         <app-audio-player-button></app-audio-player-button>
         <app-home-button onclic></app-home-button>
       </nz-footer>
