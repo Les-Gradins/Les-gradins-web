@@ -8,6 +8,7 @@
             trackname: 'LES GRADINS (XII)',
             photosPath: '../assets/LES GRADINS_PHOTO_WEB/1-LES_GRADINS(XII)',
             bdPath: '/assets/LES GRADINS_BD_WEB/1-LES_GRADINS(XII)/1-LES_GRADINS(XII)_',
+            url: '/assets/audio/01_Les_gradins.m4a',
             casenumber: 9,
             rotDeg: 376
         },
@@ -17,6 +18,7 @@
             trackname: 'REPEAT',
             photosPath: '../assets/LES GRADINS_PHOTO_WEB/2-REPEAT',
             bdPath: '/assets/LES GRADINS_BD_WEB/2-REPEAT/2-REPEAT_',
+            url: '/assets/audio/02_Repeat.m4a',
             casenumber: 18,
             rotDeg: 48
         },
@@ -26,6 +28,7 @@
             trackname: 'MOIMAN',
             photosPath: '../assets/LES GRADINS_PHOTO_WEB/3-MOIMANT',
             bdPath: '/assets/LES GRADINS_BD_WEB/3-MOIMAN/3-MOIMAN_',
+            url: '/assets/audio/03_Moiman.m4a',
             casenumber: 18,
             rotDeg: 71
         },
@@ -36,6 +39,7 @@
             photosPath: '../assets/LES GRADINS_PHOTO_WEB/4-SUNSHINE(III)',
             bdPath: '/assets/LES GRADINS_BD_WEB/4-SUNSHINE(III)/4-SUNSHINE(III)_',
             casenumber: 18,
+            url: '/assets/audio/04_Sunshine.m4a',
             rotDeg: 98
         },
 
@@ -45,6 +49,7 @@
             photosPath: '../assets/LES GRADINS_PHOTO_WEB/5-CARRÉ_SAINT-LOUIS',
             bdPath: '/assets/LES GRADINS_BD_WEB/5-CARRÉ_SAINT-LOUIS/5-CARRÉ_SAINT-LOUIS_',
             casenumber: 18,
+            url: '/assets/audio/04_Sunshine.m4a',
             rotDeg: 141
         },
 
@@ -54,6 +59,7 @@
             photosPath: '../assets/LES GRADINS_PHOTO_WEB/6-VRAI',
             bdPath: '/assets/LES GRADINS_BD_WEB/6-VRAI/6-VRAI_',
             casenumber: 9,
+            url: '/assets/audio/04_Sunshine.m4a',
             rotDeg: 172
         },
 
@@ -63,6 +69,7 @@
             photosPath: '../assets/LES GRADINS_PHOTO_WEB/7-YO KODAK!(VI)',
             bdPath: '/assets/LES GRADINS_BD_WEB/7-YO KODAK!(VI)/7-YO KODAK!(VI)_',
             casenumber: 9,
+            url: '/assets/audio/04_Sunshine.m4a',
             rotDeg: 192
         },
 
@@ -72,6 +79,7 @@
             photosPath: '../assets/LES GRADINS_PHOTO_WEB/8-IMMORTEL',
             bdPath: '/assets/LES GRADINS_BD_WEB/8-IMMORTEL/8-IMMORTEL_',
             casenumber: 9,
+            url: '/assets/audio/04_Sunshine.m4a',
             rotDeg: 226
         },
 
@@ -81,6 +89,7 @@
             photosPath: '../assets/LES GRADINS_PHOTO_WEB/9-L\'ÉQUIPE',
             bdPath: '/assets/LES GRADINS_BD_WEB/9-L\'ÉQUIPE/9-L\'ÉQUIPE_',
             casenumber: 18,
+            url: '/assets/audio/04_Sunshine.m4a',
             rotDeg: 251
         },
 
@@ -90,6 +99,7 @@
             photosPath: '../assets/LES GRADINS_PHOTO_WEB/10-CARNAVAL(IX)',
             bdPath: '/assets/LES GRADINS_BD_WEB/10-CARNAVAL(IX)/10-CARNAVAL(IX)_',
             casenumber: 9,
+            url: '/assets/audio/04_Sunshine.m4a',
             rotDeg: 280
         },
 
@@ -99,6 +109,7 @@
             photosPath: '../assets/LES GRADINS_PHOTO_WEB/11-DANS_LE_VENT',
             bdPath: '/assets/LES GRADINS_BD_WEB/11-DANS_LE_VENT/11-DANS_LE_VENT_',
             casenumber: 9,
+            url: '/assets/audio/04_Sunshine.m4a',
             rotDeg: 317
         },
 
@@ -108,6 +119,7 @@
             photosPath: '../assets/LES GRADINS_PHOTO_WEB/12-OLYMPE',
             bdPath: '/assets/LES GRADINS_BD_WEB/12-OLYMPE/12-OLYMPE_',
             casenumber: 9,
+            url: '/assets/audio/04_Sunshine.m4a',
             rotDeg: 345
         }
 
