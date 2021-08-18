@@ -68,7 +68,7 @@ nz-header {
     width: 100vw;
     height: max-content;
     z-index: 2;
-    background-color:#f1f3f6 ;
+    background-color:rgba(0, 0, 0, 0);
     flex-direction: row-reverse;
     align-content: flex-end;
 }
@@ -78,7 +78,7 @@ nz-footer {
     width: 100vw;
     height: max-content;
     z-index: 2;
-    background-color:#f1f3f6 ;
+    background-color:rgba(0, 0, 0, 0) ;
     flex-direction: row-reverse;
     align-content: flex-end;
     display: grid;
@@ -98,6 +98,6 @@ nz-footer {
 // }
 
 .inner-content {
-    background: #fff;
+    background: rgba(0, 0, 0, 0);
     height: 100%;
 }

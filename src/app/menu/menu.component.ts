@@ -12,7 +12,7 @@ export class MenuComponent implements OnInit, OnChanges, OnDestroy {
   personnage: string;
   sub: Subscription;
   routeSub: Subscription;
-  isCollapsed: Boolean = false;
+  isCollapsed = false;
 
   constructor(private chansonService: ChansonService, private router: Router) {
     this.sub = this.chansonService.getSelectedPersonnage().subscribe(p => {
