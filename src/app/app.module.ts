@@ -15,7 +15,6 @@ import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-
 import { NZ_ICONS } from 'ng-zorro-antd/icon';
 import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
@@ -32,6 +31,8 @@ import { AngMusicPlayerModule } from 'ang-music-player';
 import { SoundbarsComponent } from './components/soundbars/soundbars.component';
 import { AudioPlayerButtonComponent } from './components/audio-player-button/audio-player-button.component';
 import { AudioPlayerComponent } from './pages/audio-player/audio-player.component';
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web/build/player/lottie_svg';
 
 registerLocaleData(fr);
 
@@ -39,6 +40,12 @@ const antDesignIcons = AllIcons as {
   [key: string]: IconDefinition;
 };
 const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesignIcons[key]);
+
+// Note we need a separate function as it's required
+// by the AOT compiler.
+export function playerFactory() {
+  return player;
+}
 
 @NgModule({
   declarations: [
@@ -63,6 +70,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     HttpClientModule,
     BrowserAnimationsModule,
     IconsProviderModule,
+    LottieModule.forRoot({ player: playerFactory }),
     NzLayoutModule,
     NzMenuModule,
     ServiceWorkerModule.register('ngsw-worker.js', {

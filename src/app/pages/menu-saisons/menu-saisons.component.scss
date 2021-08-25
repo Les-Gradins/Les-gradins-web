@@ -1,83 +1,208 @@
 body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    max-height: 100%;
-    max-width: 100%;
-    background: #f1f3f6;
-    font-family: "Eurostile-extended";
-    font-weight: bold;
-    
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-height: 100%;
+  max-width: 100%;
+  background: #f1f3f6;
+  font-family: "Eurostile-extended";
+  font-weight: bold;
+
 }
 
 .tracklist {
-    position:absolute;
-    transform:  translateY(-100px);
-    font-weight: bold;
-    font-size: xx-small;
+  position: absolute;
+  transform: translateY(-100px);
+  font-weight: bold;
+  font-size: xx-small;
 }
 
-h2 {
-    position:absolute;
-    font-weight: normal;
-    transform: translateY(-23.5vh);
-    font-size: 2.5vh;
-    transition: all 1.5s;
+h2 {
+  position: absolute;
+  font-weight: normal;
+  transform: translateY(-23.5vh);
+  font-size: 2.5vh;
+  transition: all 1.5s;
 }
 
 #demo7 {
-    position:absolute;
-    font-size: 1.78vh;
-    font-weight:normal;
-    transform: translateY(-26vh);
-    transition:all 1.5s;
+  position: absolute;
+  font-size: 1.78vh;
+  font-weight: normal;
+  transform: translateY(-26vh);
+  transition: all 1.5s;
 }
 
 
 .container {
-    width: 100%;
-    height: 97vh;
+  width: 100%;
+  height: 97vh;
 }
 
 svg {
-    width:48vh;
-    height:48vh;
-    align-items: center;
-    transition: all 1.5s;
+  width: 48vh;
+  height: 48vh;
+  align-items: center;
+  transition: all 1.5s;
 }
 
 .draw {
-    opacity: 0;
-    transition: opacity ease-in-out 1s;
+  opacity: 0;
+  transition: opacity ease-in-out 1s;
 }
 
 .prints {
-    opacity: 0;
+  opacity: 0;
 }
-.buttons{
-    position:absolute;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+
+.buttons {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 .selected-song {
-    padding-top: 20px;
-    position: relative;
-    display: flex;
-    width: 100%;
-    direction: row;
-    height: min-content;
-    justify-content: space-around;
+  padding-top: 20px;
+  position: relative;
+  display: flex;
+  width: 100%;
+  direction: row;
+  height: min-content;
+  justify-content: space-around;
 }
 
 .button {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 50vh;
+  height: 50vh;
+  background: #f1f3f6;
+  border-radius: 50%;
+  box-shadow: inset 0 0 15px rgba(55, 84, 170, 0), inset 0 0 20px rgba(255, 255, 255, 0), 10px 10px 18px rgba(55, 84, 170, 0.15), -10px -10px 22px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2);
+  transition: box-shadow 0.7s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+  font-size: 0;
+}
+
+image {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all 1.5s;
+}
+
+
+// CSS pour mobile
+
+
+.button-chanson {
+  display: inline-block;
+  margin-top: 7vh;
+  // margin-left: 30px;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  // background: #f1f3f6;
+  border-radius: 40px;
+  box-shadow: inset 0 0 15px rgba(55, 84, 170, 0), inset 0 0 20px rgba(255, 255, 255, 0), 10px 10px 18px rgba(55, 84, 170, 0.15), -10px -10px 22px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2);
+  transition: box-shadow 0.7s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+}
+
+.flex-item {
+  padding: 10px 30px;
+  // padding-top: 10px;
+  // padding-left: 30px;
+  // padding-right: 30px;
+  font-size: large;
+  text-align: center;
+}
+
+.button:hover,
+.button:focus,
+.button-chanson:hover {
+  box-shadow: inset 7px 7px 15px rgba(55, 84, 170, 0.15), inset -7px -7px 20px white, 0px 0px 4px rgba(255, 255, 255, 0.2);
+}
+
+.button:hover .draw {
+  opacity: 0.4;
+}
+
+.button:hover .prints {
+  opacity: 1;
+  transition: opacity ease-in-out 0.8s;
+}
+
+.button:hover:after {
+  --color: aqua;
+}
+
+@keyframes flash {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.rotated {
+  transform: rotate(25deg);
+  -webkit-transform: rotate(25deg);
+  -moz-transform: rotate(25deg);
+  -o-transform: rotate(25deg);
+}
+
+@media only screen and (max-width: 600px) {
+
+  //screen and (orientation:landscape) {
+  /* Your CSS Here*/
+  .app-layout {
+    height: 100vh;
+    // width: 100vh;
+  }
+
+  h2 {
+    position: absolute;
+    font-weight: normal;
+    transform: translateY(-30.5vh);
+    font-size: 2vh;
+    transition: all 1.5s;
+  }
+
+  #demo7 {
+    position: absolute;
+    font-size: 1.5vh;
+    font-weight: normal;
+    transform: translateY(-29.5vh);
+    transition: all 1.5s;
+  }
+
+  .flex-item {
+    padding-top: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: medium;
+    text-align: center;
+  }
+
+  .button {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    width: 50vh;
-    height: 50vh;
+    width: 70vw;
+    height: 70vw;
     background: #f1f3f6;
     border-radius: 50%;
     box-shadow: inset 0 0 15px rgba(55, 84, 170, 0), inset 0 0 20px rgba(255, 255, 255, 0), 10px 10px 18px rgba(55, 84, 170, 0.15), -10px -10px 22px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2);
@@ -88,23 +213,11 @@ svg {
     outline: none;
     border: none;
     font-size: 0;
-}
+  }
 
-image {
-    position: absolute ;
-    left:0; 
-    top:0;
-    transition: all 1.5s;
-}
-
-
-// CSS pour mobile
-
-
-.button-chanson {
+  .button-chanson {
     display: inline-block;
-    margin-top: 7vh;
-    // margin-left: 30px;
+    margin-top: 10vh;
     position: relative;
     align-items: center;
     justify-content: center;
@@ -117,120 +230,13 @@ image {
     justify-content: center;
     outline: none;
     border: none;
-}
-
-.flex-item {
-    padding: 10px 30px;
-    // padding-top: 10px;
-    // padding-left: 30px;
-    // padding-right: 30px;
-    font-size: large;
-    text-align: center;
-}
-
-.button:hover,
-.button:focus,
-.button-chanson:hover {
-    box-shadow: inset 7px 7px 15px rgba(55, 84, 170, 0.15), inset -7px -7px 20px white, 0px 0px 4px rgba(255, 255, 255, 0.2);
-}
-
-.button:hover .draw {
-    opacity: 0.4;
-}
-
-.button:hover .prints {
-    opacity: 1;
-    transition: opacity ease-in-out 0.8s;
-}
-
-.button:hover:after {
-    --color: aqua;
-}
-
-@keyframes flash {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-.rotated { 
-    transform:rotate(25deg); 
-    -webkit-transform:rotate(25deg); 
-    -moz-transform:rotate(25deg); 
-    -o-transform:rotate(25deg); 
-}
-
-@media only screen and (max-width: 600px) { //screen and (orientation:landscape) {
-    /* Your CSS Here*/
-    .app-layout {
-      height: 100vh;
-      // width: 100vh;
-    }
-
-    h2 {
-        position:absolute;
-        font-weight: normal;
-        transform: translateY(-30.5vh);
-        font-size: 2vh;
-        transition: all 1.5s;
-    }
-    
-    #demo7 {
-        position:absolute;
-        font-size: 1.5vh;
-        font-weight:normal;
-        transform: translateY(-29.5vh);
-        transition:all 1.5s;
-    }
-  
-    .flex-item {
-      padding-top: 10px;
-      padding-left: 30px;
-      padding-right: 30px;
-      font-size: medium;
-      text-align: center;
-      }
-  
-    .button {
-      position: relative;
-      width: 70vw;
-      height: 70vw;
-      background: #f1f3f6;
-      border-radius: 50%;
-      box-shadow: inset 0 0 15px rgba(55, 84, 170, 0), inset 0 0 20px rgba(255, 255, 255, 0), 10px 10px 18px rgba(55, 84, 170, 0.15), -10px -10px 22px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2);
-      transition: box-shadow 0.7s ease-in-out;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      outline: none;
-      border: none;
-      font-size: 0;
-      }
-  
-      .button-chanson {
-          display: inline-block;
-          margin-top: 10vh;
-          position: relative;
-          align-items: center;
-          justify-content: center;
-          // background: #f1f3f6;
-          border-radius: 40px;
-          box-shadow: inset 0 0 15px rgba(55, 84, 170, 0), inset 0 0 20px rgba(255, 255, 255, 0), 10px 10px 18px rgba(55, 84, 170, 0.15), -10px -10px 22px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2);
-          transition: box-shadow 0.7s ease-in-out;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          outline: none;
-          border: none;
-      }
-
-      svg {
-        width:64vw;
-        height:64vw;
-        align-items: center;
-    }
-  
   }
+
+  svg {
+    width: 64vw;
+    height: 64vw;
+    align-items: center;
+  }
+
+}
+

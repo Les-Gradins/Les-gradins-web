@@ -21,6 +21,7 @@ export class MenuChapitresComponent implements OnInit, OnDestroy {
   public rotationDeg = 16;
   public logoRotationDeg = 0;
   public transformString = '';
+  public loading = true;
 
   constructor(private chansonService: ChansonService, private router: Router) {
     this.sub = this.chansonService.getSelectedSong().subscribe((chanson) => {
@@ -38,7 +39,7 @@ export class MenuChapitresComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     setTimeout(() => {
       this.init();
-    }, 100);
+    }, 200);
   }
 
 
@@ -124,6 +125,10 @@ export class MenuChapitresComponent implements OnInit, OnDestroy {
       this.transformString = 'translateY(-26vh) ';
     }
     this.rotateText();
+
+    setTimeout(() => {
+      this.loading = false;
+    }, 1500)
   }
 
 }

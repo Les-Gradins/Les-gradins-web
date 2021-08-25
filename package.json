@@ -25,6 +25,7 @@
     "circletype": "^2.3.0",
     "ng-zorro-antd": "^12.0.1",
     "ngx-audio-player": "^11.0.4",
+    "ngx-lottie": "^7.0.3",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"

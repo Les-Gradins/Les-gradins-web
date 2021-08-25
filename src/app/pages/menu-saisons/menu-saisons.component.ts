@@ -27,8 +27,10 @@ export class MenuSaisonsComponent implements OnInit, OnDestroy {
   public rotationSaison = 12;
   public rotationChanson = 71;
   public rotationLogo = -45;
+  public loading = true;
 
   constructor(private chansonService: ChansonService, private router: Router) {
+    this.loading = true;
     this.sub = this.chansonService.getSelectedSeason().subscribe(saison => {
       this.saisonChoisie = saison;
       this.setChansonAligne();
@@ -48,7 +50,7 @@ export class MenuSaisonsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     setTimeout(() => {
       this.init();
-    }, 100);
+    }, 200);
   }
 
   ngOnDestroy(): void {
@@ -209,5 +211,10 @@ export class MenuSaisonsComponent implements OnInit, OnDestroy {
     this.hideTracks();
     this.rotateText();
     this.rotateLogo();
+
+    setTimeout(() => {
+      this.loading = false;
+    }, 3000)
+    
   }
 }
