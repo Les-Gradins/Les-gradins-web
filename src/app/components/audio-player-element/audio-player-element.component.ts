@@ -2,32 +2,36 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { fadeAnimation } from 'src/app/app.animations';
-import { Chanson } from 'src/app/modeles/chanson';
 import { ChansonService } from 'src/app/modeles/chanson.service';
+import { Saison } from 'src/app/modeles/saison';
+import { Tracklist } from 'src/tracklist';
 
 @Component({
-  selector: 'app-audio-player-button',
-  templateUrl: './audio-player-button.component.html',
-  styleUrls: ['./audio-player-button.component.scss'],
+  selector: 'app-audio-player-element',
+  templateUrl: './audio-player-element.component.html',
+  styleUrls: ['./audio-player-element.component.scss'],
   animations: [fadeAnimation]
 })
-export class AudioPlayerButtonComponent implements OnInit {
+export class AudioPlayerElementComponent implements OnInit {
 
-  public isAudioplayerToggled = false;
-  chanson: Chanson|undefined;
+  public isAudioplayerToggled = true;
+  saison: Saison|undefined;
   sub: Subscription;
   public audioList;
 
   constructor(private chansonService: ChansonService) {
-    this.sub = this.chansonService.getSelectedSong().subscribe(title => {
-      this.chanson = title;
-      this.audioList = [
-          {
-            url: this.chanson.url,
-            title: this.chanson.trackname,
-            cover: '/assets/cover.jpg',
-          }
-        ];
+    this.sub = this.chansonService.getSelectedSeason().subscribe(title => {
+      this.saison = title;
+      this.audioList = this.saison.tracks.reduce((acc, t) => {
+        const chansonIdx = Tracklist.findIndex((c) => c.trackname === t);
+        acc.push([{
+          url: Tracklist[chansonIdx].url,
+          title: t,
+          cover: '/assets/cover.jpg',
+        }]);
+        return acc;
+      }, []);
+
 
     });
     console.log(this.audioList);
@@ -36,7 +40,7 @@ export class AudioPlayerButtonComponent implements OnInit {
   ngOnInit(): void {
     setTimeout(() => {
       this.init();
-    }, 200);
+    }, 100);
   }
 
   afficherAudioPlayer(): void {
@@ -44,11 +48,12 @@ export class AudioPlayerButtonComponent implements OnInit {
     if (this.isAudioplayerToggled) {
       setTimeout(() => {
         this.init();
-      }, 100);
+      }, 1300);
     }
   }
 
   init(): void {
+    console.log('INIT');
     const controls = document.getElementsByClassName('controls');
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < controls.length; i++) {
@@ -85,14 +90,15 @@ export class AudioPlayerButtonComponent implements OnInit {
       e.style.marginTop = '0.5vw';
     }
 
-    const cover = document.getElementsByTagName('img');
+    const cover = document.getElementsByClassName('cover ng-star-inserted');
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < cover.length; i++) {
       const e = cover[i] as HTMLElement;
-      if ((cover[i].parentNode as HTMLElement).className  === 'cover ng-star-inserted' ){
-        e.style.maxHeight = '4vw';
-        e.style.maxWidth = '4vw';
-      }
+      e.remove();
+      // if ((cover[i].parentNode as HTMLElement).className  === 'cover ng-star-inserted' ){
+      //   console.log('HERE')
+      //   e.remove();
+      // }
     }
 
     const wrapper = document.getElementsByClassName('wrapper');

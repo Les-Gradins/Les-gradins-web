@@ -13,6 +13,7 @@ export class MenuComponent implements OnInit, OnChanges, OnDestroy {
   sub: Subscription;
   routeSub: Subscription;
   isCollapsed = false;
+  isThere = false;
 
   constructor(private chansonService: ChansonService, private router: Router) {
     this.sub = this.chansonService.getSelectedPersonnage().subscribe(p => {
@@ -32,8 +33,10 @@ export class MenuComponent implements OnInit, OnChanges, OnDestroy {
         router.navigateByUrl('/');
       } else if (val.url === '/menu/photo' || val.url === '/menu/chanson' ) {
         this.isCollapsed = true;
+        this.isThere = false;
       } else if (val.url === '/menu/chapitres' || val.url === '/menu/saisons' ){
         this.isCollapsed = false;
+        this.isThere = true;
       }
     });
   }

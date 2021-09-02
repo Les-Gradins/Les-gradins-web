@@ -32,6 +32,7 @@ import { AngMusicPlayerModule } from 'ang-music-player';
 import { SoundbarsComponent } from './components/soundbars/soundbars.component';
 import { AudioPlayerButtonComponent } from './components/audio-player-button/audio-player-button.component';
 import { AudioPlayerComponent } from './pages/audio-player/audio-player.component';
+import { AudioPlayerElementComponent} from './components/audio-player-element/audio-player-element.component';
 
 registerLocaleData(fr);
 
@@ -53,7 +54,8 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     MenuComponent,
     SoundbarsComponent,
     AudioPlayerButtonComponent,
-    AudioPlayerComponent
+    AudioPlayerComponent,
+    AudioPlayerElementComponent
   ],
   imports: [
     AngMusicPlayerModule,

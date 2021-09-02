@@ -9,7 +9,9 @@
         </div>
       </nz-content>
       <nz-footer @fadeAnimation *ngIf="isCollapsed">
-        <app-audio-player-button></app-audio-player-button>
+        <div>
+          <app-audio-player-button *ngIf="isThere"></app-audio-player-button>
+        </div>
         <app-home-button onclic></app-home-button>
       </nz-footer>
   </nz-layout>

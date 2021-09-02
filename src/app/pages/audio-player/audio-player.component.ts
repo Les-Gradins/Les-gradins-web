@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Chanson } from 'src/app/modeles/chanson';
 import { ChansonService } from 'src/app/modeles/chanson.service';
@@ -9,22 +9,25 @@ import { ChansonService } from 'src/app/modeles/chanson.service';
   styleUrls: ['./audio-player.component.scss']
 })
 export class AudioPlayerComponent implements OnInit {
+
   chanson: Chanson|undefined;
   sub: Subscription;
+  @Input()
   public audioList;
-  constructor(private chansonService: ChansonService) {
-    this.sub = this.chansonService.getSelectedSong().subscribe(title => {
-      this.chanson = title;
-      this.audioList = [
-          {
-            url: this.chanson.url,
-            title: this.chanson.trackname,
-            cover: '/assets/cover.jpg',
-          }
-        ];
 
-    });
-    console.log(this.audioList);
+  constructor(private chansonService: ChansonService) {
+    // this.sub = this.chansonService.getSelectedSong().subscribe(title => {
+    //   this.chanson = title;
+    //   this.audioList = [
+    //       {
+    //         url: this.chanson.url,
+    //         title: this.chanson.trackname,
+    //         cover: '/assets/cover.jpg',
+    //       }
+    //     ];
+
+    // });
+    // console.log(this.audioList);
   }
 
   // public audioList = [
@@ -52,9 +55,9 @@ export class AudioPlayerComponent implements OnInit {
   // ];
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.init();
-    }, 100);
+    // setTimeout(() => {
+    //   this.init();
+    // }, 100);
   }
 
   init(): void {
