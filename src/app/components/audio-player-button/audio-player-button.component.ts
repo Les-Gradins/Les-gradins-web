@@ -110,11 +110,11 @@ export class AudioPlayerButtonComponent implements OnInit {
         const e = controls[i].children[j] as HTMLElement;
         e.style.height = '0.8vw';
         e.style.fill = 'black';
-        if (j === 4 ){//|| j === 0){
+        if (j === 4 ){// || j === 0){
           e.remove();
         }
 
-        if (j === 0 ){//|| j === 0){
+        if (j === 0 ){// || j === 0){
           e.style.display = 'none';
         }
       }
@@ -180,7 +180,7 @@ export class AudioPlayerButtonComponent implements OnInit {
     // }
   }
 
-  @HostListener('click', ['$event.target']) onClick(e){
+  @HostListener('click', ['$event.target']) onClick(e): void {
     // window.alert('Current DOM element is');
     this.init();
   }
