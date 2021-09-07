@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { merge, Subscription } from 'rxjs';
 import { ChansonService } from '../../modeles/chanson.service';
@@ -7,6 +7,12 @@ import { Saisons } from 'src/saisons';
 import { Saison } from 'src/app/modeles/saison';
 import { Chanson } from 'src/app/modeles/chanson';
 import { Tracklist } from 'src/tracklist';
+
+export enum KEY_CODE {
+  RIGHT_ARROW = 'ArrowRight',
+  LEFT_ARROW = 'ArrowLeft',
+  ENTER = 'Enter'
+}
 
 @Component({
   selector: 'app-menu-saisons',
@@ -209,5 +215,26 @@ export class MenuSaisonsComponent implements OnInit, OnDestroy {
     this.hideTracks();
     this.rotateText();
     this.rotateLogo();
+  }
+  onSwipe(){
+    console.log('swipe')
+  }
+
+  @HostListener('window:keyup', ['$event'])
+  keyEvent(event: KeyboardEvent) {
+    console.log(event);
+
+    console.log(event);
+    if (event.code === KEY_CODE.RIGHT_ARROW) {
+      this.getNext();
+    }
+
+    if (event.code === KEY_CODE.LEFT_ARROW) {
+      this.getPrec();
+    }
+
+    if (event.code === KEY_CODE.ENTER) {
+      this.selectSong();
+    }
   }
 }

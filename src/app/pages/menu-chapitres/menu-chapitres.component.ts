@@ -1,10 +1,16 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { merge, Subscription } from 'rxjs';
 import { Tracklist } from 'src/tracklist';
 import { ChansonService } from '../../modeles/chanson.service';
 import { Chanson } from '../../modeles/chanson';
 import CircleType from 'circletype';
+
+export enum KEY_CODE {
+  RIGHT_ARROW = 'ArrowRight',
+  LEFT_ARROW = 'ArrowLeft',
+  ENTER = 'Enter'
+}
 
 @Component({
   selector: 'app-menu-chapitres',
@@ -120,6 +126,24 @@ export class MenuChapitresComponent implements OnInit, OnDestroy {
       this.transformString = 'translateY(-26vh) ';
     }
     this.rotateText();
+  }
+
+  @HostListener('window:keyup', ['$event'])
+  keyEvent(event: KeyboardEvent) {
+    console.log(event);
+
+    console.log(event);
+    if (event.code === KEY_CODE.RIGHT_ARROW) {
+      this.getNext();
+    }
+
+    if (event.code === KEY_CODE.LEFT_ARROW) {
+      this.getPrec();
+    }
+
+    if (event.code === KEY_CODE.ENTER) {
+      this.selectSong();
+    }
   }
 
 }
