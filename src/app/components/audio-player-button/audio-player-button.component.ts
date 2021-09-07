@@ -31,6 +31,7 @@ export class AudioPlayerButtonComponent implements OnInit {
       if (p === 'Kirouac'){
         this.sub = this.chansonService.getSelectedSong().subscribe(title => {
           this.chanson = title;
+          this.audioList = [];
           this.audioList = [
               {
                 url: this.chanson.url,
@@ -43,6 +44,7 @@ export class AudioPlayerButtonComponent implements OnInit {
       } else if (p === 'Kodak') {
         this.seasonSub = this.chansonService.getSelectedSeason().subscribe(title => {
           this.saison = title;
+          this.audioList = [];
           this.audioList = this.saison.tracks.reduce((acc, t) => {
             const chansonIdx = Tracklist.findIndex((c) => c.trackname === t);
             acc.push({
