@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { fadeAnimation } from 'src/app/app.animations';
 import { Chanson } from 'src/app/modeles/chanson';
 import { ChansonService } from 'src/app/modeles/chanson.service';
+import { Saison } from 'src/app/modeles/saison';
+import { Tracklist } from 'src/tracklist';
 
 @Component({
   selector: 'app-audio-player-button',
@@ -16,20 +18,71 @@ export class AudioPlayerButtonComponent implements OnInit {
   public isAudioplayerToggled = false;
   chanson: Chanson|undefined;
   sub: Subscription;
+  seasonSub: Subscription;
+  psub: Subscription;
   public audioList;
+  saison: Saison|undefined;
 
   constructor(private chansonService: ChansonService) {
-    this.sub = this.chansonService.getSelectedSong().subscribe(title => {
-      this.chanson = title;
-      this.audioList = [
-          {
-            url: this.chanson.url,
-            title: this.chanson.trackname,
-            cover: '/assets/cover.jpg',
-          }
-        ];
+
+    this.psub = this.chansonService.getSelectedPersonnage().subscribe(p => {
+      console.log(p);
+      // this.personnage = p;
+      if (p === 'Kirouac'){
+        this.sub = this.chansonService.getSelectedSong().subscribe(title => {
+          this.chanson = title;
+          this.audioList = [
+              {
+                url: this.chanson.url,
+                title: this.chanson.trackname,
+                cover: '/assets/cover.jpg',
+              }
+            ];
+
+        });
+      } else if (p === 'Kodak') {
+        this.seasonSub = this.chansonService.getSelectedSeason().subscribe(title => {
+          this.saison = title;
+          this.audioList = this.saison.tracks.reduce((acc, t) => {
+            const chansonIdx = Tracklist.findIndex((c) => c.trackname === t);
+            acc.push({
+              url: Tracklist[chansonIdx].url,
+              title: t,
+              cover: '/assets/cover.jpg',
+            });
+            return acc;
+          }, []);
+
+        });
+      }
 
     });
+    // this.sub = this.chansonService.getSelectedSong().subscribe(title => {
+    //   this.chanson = title;
+    //   this.audioList = [
+    //       {
+    //         url: this.chanson.url,
+    //         title: this.chanson.trackname,
+    //         cover: '/assets/cover.jpg',
+    //       }
+    //     ];
+
+    // });
+
+    // this.seasonSub = this.chansonService.getSelectedSeason().subscribe(title => {
+    //   this.saison = title;
+    //   this.audioList = this.saison.tracks.reduce((acc, t) => {
+    //     const chansonIdx = Tracklist.findIndex((c) => c.trackname === t);
+    //     acc.push([{
+    //       url: Tracklist[chansonIdx].url,
+    //       title: t,
+    //       cover: '/assets/cover.jpg',
+    //     }]);
+    //     return acc;
+    //   }, []);
+
+
+    // });
     console.log(this.audioList);
   }
 
@@ -52,8 +105,20 @@ export class AudioPlayerButtonComponent implements OnInit {
     const controls = document.getElementsByClassName('controls');
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < controls.length; i++) {
-      const e = controls[i] as HTMLElement;
-      e.remove();
+      console.log(controls[i].children);
+      for (let j = 0; j < controls[i].children.length; j++) {
+        const e = controls[i].children[j] as HTMLElement;
+        e.style.height = '0.8vw';
+        e.style.fill = 'black';
+        if (j === 4 ){//|| j === 0){
+          e.remove();
+        }
+
+        if (j === 0 ){//|| j === 0){
+          e.style.display = 'none';
+        }
+      }
+      // e.remove();
 
     }
 
@@ -113,6 +178,11 @@ export class AudioPlayerButtonComponent implements OnInit {
     //   const e = slider[i] as HTMLElement;
     //   e.style().color = 'black'
     // }
+  }
+
+  @HostListener('click', ['$event.target']) onClick(e){
+    // window.alert('Current DOM element is');
+    this.init();
   }
 
 
