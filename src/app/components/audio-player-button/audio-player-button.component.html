@@ -1,11 +1,11 @@
 <body>
   
 
-  <div class='player'  [style.visibility]='visibility()' @fadeAnimation >
+  <div class='player-{{personnage}}'  [style.visibility]='visibility()' @fadeAnimation >
     <app-audio-player [audioList]=audioList></app-audio-player>
   </div>
   <div class='perso'>
-    <button class='button' type='button' (click)="afficherAudioPlayer()">
+    <button class='button-{{personnage}}' type='button' (click)="afficherAudioPlayer()">
       <img src="assets/audio/music.png" width="30px"/>
     </button>
   </div>

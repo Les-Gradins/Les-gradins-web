@@ -17,6 +17,7 @@ export class AudioPlayerButtonComponent implements OnInit {
 
   public isAudioplayerToggled = false;
   chanson: Chanson|undefined;
+  personnage: string|undefined;
   sub: Subscription;
   seasonSub: Subscription;
   psub: Subscription;
@@ -29,7 +30,7 @@ export class AudioPlayerButtonComponent implements OnInit {
 
     this.psub = this.chansonService.getSelectedPersonnage().subscribe(p => {
       console.log(p);
-      // this.personnage = p;
+      this.personnage = p;
       if (p === 'Kirouac'){
         this.sub = this.chansonService.getSelectedSong().subscribe(title => {
           this.chanson = title;

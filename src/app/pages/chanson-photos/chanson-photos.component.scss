@@ -4,13 +4,43 @@ body{
     overflow: auto;
     // padding: 10px;
     background: #ecebeb;
-    border-radius: 1%;
     box-shadow: inset 0 0 15px rgba(55, 84, 170, 0), inset 0 0 20px rgba(255, 255, 255, 0), 10px 10px 18px rgba(55, 84, 170, 0.15), -10px -10px 22px white, inset 0px 0px 4px rgba(255, 255, 255, 0.2);
     transition: box-shadow 0.7s ease-in-out;
     
     outline: none;
     border: none;
     font-size: 0;
+}
+.button-chanson {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    position: relative;
+    align-items: flex-start;
+    justify-content:space-evenly;
+
+    background: #ecebeb;
+    box-shadow: inset 7px 7px 15px rgba(55, 84, 170, 0.15), inset -7px -7px 20px white, 0px 0px 4px rgba(255, 255, 255, 0.2);
+    transition: box-shadow 0.7s ease-in-out;
+    outline: none;
+    border: none;
+    font-family: Eurostile;
+    font-size: xx-large;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+}
+.prec{
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+}
+i{
+    cursor: pointer;
+}
+
+.next{
+    display: flex;
+    flex-direction: row-reverse;
+    align-content: flex-end;
 }
 .PHOTOS{
 
@@ -41,4 +71,16 @@ img{
     width: 100% !important;
     height: auto !important;
     padding-bottom: 10px;
+}
+@media only screen and (max-width: 600px) { //screen and (orientation:landscape)
+    
+    .PHOTOS{
+
+        -moz-column-count:    3;
+        -webkit-column-count: 3;
+        column-count:3;
+        grid-column-gap:10px ;
+        grid-row-gap:10px ;
+        background: #ecebeb;
+    }
 }

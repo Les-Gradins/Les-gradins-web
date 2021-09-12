@@ -15,9 +15,10 @@ body{
   background: rgba(0, 0, 0, 0);
   padding-bottom: 1%;
   padding-right: 10px;
+  cursor: pointer;
 }
 
-.button {
+.button-Kirouac {
   position: relative;
   margin-right: 20px;
   margin-left: 20px;
@@ -37,7 +38,24 @@ body{
   border: none;
   font-size: 0;
 }
-.player {
+
+.button-Kodak {
+  position: relative;
+  margin-right: 20px;
+  margin-left: 20px;
+  width: 5vw;
+  height: 5vw;
+  background: #ecebeb;
+  border-radius: 50%;
+  transition: box-shadow 0.7s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+  font-size: 0;
+}
+.player-Kirouac {
   position: absolute;
   display: flex;
   flex-direction: column;
@@ -58,6 +76,22 @@ body{
     inset 0px 0px 4px rgba(255, 255, 255, 0.2);
 }
 
+.player-Kodak {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 7vw;
+  margin-left: 1vw;
+  margin-bottom: 0.3vw;
+  padding-right: 2vw;
+  height: 5.7vw;
+  width: max-content;
+  
+  background: #ecebeb;
+  border-radius: 50px;
+  }
+
 @media only screen and (max-width: 600px) {
 
   //screen and (orientation:landscape) {
@@ -67,7 +101,7 @@ body{
     // width: 100vh;
   }
 
-  .button {
+  .button-Kirouac {
     position: relative;
     width: 15vw;
     height: 15vw;
@@ -86,7 +120,22 @@ body{
     font-size: 0;
   }
 
-  .player {
+  .button-Kodak {
+    position: relative;
+    width: 15vw;
+    height: 15vw;
+    background: #ecebeb;
+    border-radius: 50%;
+    transition: box-shadow 0.7s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: none;
+    font-size: 0;
+  }
+
+  .player-Kirouac {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -107,6 +156,24 @@ body{
       inset 0 0 20px rgba(255, 255, 255, 0),
       10px 10px 18px rgba(55, 84, 170, 0.15), -10px -10px 22px white,
       inset 0px 0px 4px rgba(255, 255, 255, 0.2);
+  }
+
+  .player-Kodak {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 9vw;
+    margin-left: 3vw;
+    margin-bottom: 0.3vw;
+    padding-right: 2vw;
+    padding-bottom: 2vw;
+    padding-top: 2vw;
+    height: 17vw;
+    width: max-content;
+    
+    background: #ecebeb;
+    border-radius: 50px;
   }
   
 }
