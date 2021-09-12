@@ -119,7 +119,7 @@ export class MenuChapitresComponent implements OnInit, OnDestroy {
     this.demo6 = new CircleType(document.getElementById('demo6')).dir(-1);
 
     if (window.matchMedia('(max-width: 600px)').matches) {
-      this.transformString = 'translateY(-17vh) ';
+      this.transformString = 'translateY(-18.5vh) ';
     } else {
       this.transformString = 'translateY(-26vh) ';
     }

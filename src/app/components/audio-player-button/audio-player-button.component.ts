@@ -130,7 +130,6 @@ export class AudioPlayerButtonComponent implements OnInit {
         const e = controls[i].children[j] as HTMLElement;
 
         if (window.matchMedia('(max-width: 600px)').matches) {
-          console.log('here');
           e.style.height = '3.2vw';
         } else {
           e.style.height = '0.8vw';

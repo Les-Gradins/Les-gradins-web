@@ -58,20 +58,6 @@ body{
     inset 0px 0px 4px rgba(255, 255, 255, 0.2);
 }
 
-input[type=range]{
-  -webkit-appearance: none;
-}
-input[type=range]::-webkit-slider-thumb  {
-  box-shadow: 0px 0px 0px #000000;
-  -webkit-appearance: none;
-  border: 1px solid black;
-  height: 10px;
-  width: 10px;
-  border-radius: 25px;
-  background: #02090f;
-  cursor: pointer;
-}
-
 @media only screen and (max-width: 600px) {
 
   //screen and (orientation:landscape) {
@@ -121,18 +107,6 @@ input[type=range]::-webkit-slider-thumb  {
       inset 0 0 20px rgba(255, 255, 255, 0),
       10px 10px 18px rgba(55, 84, 170, 0.15), -10px -10px 22px white,
       inset 0px 0px 4px rgba(255, 255, 255, 0.2);
-  }
-  input[type=range]{
-    -webkit-appearance: none;
-  }
-  input[type=range]::-webkit-slider-thumb  {
-    box-shadow: 0px 0px 0px #000000;
-    border: 1px solid #2497E3;
-    height: 18px;
-    width: 18px;
-    border-radius: 25px;
-    background: #02090f;
-    cursor: pointer;
   }
   
 }

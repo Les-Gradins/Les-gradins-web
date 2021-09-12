@@ -70,6 +70,7 @@ svg {
     direction: row;
     height: min-content;
     justify-content: space-around;
+    cursor:pointer;
 }
 
 .button {
@@ -117,6 +118,7 @@ image {
     justify-content: center;
     outline: none;
     border: none;
+    cursor: pointer;
 }
 
 .flex-item {
