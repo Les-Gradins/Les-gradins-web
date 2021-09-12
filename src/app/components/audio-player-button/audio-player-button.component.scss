@@ -58,6 +58,20 @@ body{
     inset 0px 0px 4px rgba(255, 255, 255, 0.2);
 }
 
+input[type=range]{
+  -webkit-appearance: none;
+}
+input[type=range]::-webkit-slider-thumb  {
+  box-shadow: 0px 0px 0px #000000;
+  -webkit-appearance: none;
+  border: 1px solid black;
+  height: 10px;
+  width: 10px;
+  border-radius: 25px;
+  background: #02090f;
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 600px) {
 
   //screen and (orientation:landscape) {
@@ -85,6 +99,42 @@ body{
     border: none;
     font-size: 0;
   }
+
+  .player {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 9vw;
+    margin-left: 3vw;
+    margin-bottom: 0.3vw;
+    padding-right: 2vw;
+    padding-bottom: 2vw;
+    padding-top: 2vw;
+    height: 17vw;
+    width: max-content;
+    
+    background: #ecebeb;
+    border-radius: 50px;
+    // box-shadow: inset 7px 7px 15px rgba(55, 84, 170, 0.15), inset -7px -7px 20px white, 0px 0px 4px rgba(255, 255, 255, 0.2);
+    box-shadow: inset 0 0 15px rgba(55, 84, 170, 0),
+      inset 0 0 20px rgba(255, 255, 255, 0),
+      10px 10px 18px rgba(55, 84, 170, 0.15), -10px -10px 22px white,
+      inset 0px 0px 4px rgba(255, 255, 255, 0.2);
+  }
+  input[type=range]{
+    -webkit-appearance: none;
+  }
+  input[type=range]::-webkit-slider-thumb  {
+    box-shadow: 0px 0px 0px #000000;
+    border: 1px solid #2497E3;
+    height: 18px;
+    width: 18px;
+    border-radius: 25px;
+    background: #02090f;
+    cursor: pointer;
+  }
+  
 }
 
 h1 {

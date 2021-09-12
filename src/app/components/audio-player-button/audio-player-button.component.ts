@@ -112,13 +112,29 @@ export class AudioPlayerButtonComponent implements OnInit {
   }
 
   init(): void {
+    // tslint:disable-next-line: prefer-for-of
+    for (let j = 0; j < document.styleSheets[11].cssRules.length; j++) {
+      const rule = document.styleSheets[11].cssRules[j] as CSSStyleRule;
+      if (rule.cssText.match('-webkit-slider-thumb')) {
+        rule.style.backgroundColor = 'black';
+        rule.style.height = '6px';
+        rule.style.width = '6px';
+      }
+    }
     const controls = document.getElementsByClassName('controls');
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < controls.length; i++) {
       console.log(controls[i].children);
+
       for (let j = 0; j < controls[i].children.length; j++) {
         const e = controls[i].children[j] as HTMLElement;
-        e.style.height = '0.8vw';
+
+        if (window.matchMedia('(max-width: 600px)').matches) {
+          console.log('here');
+          e.style.height = '3.2vw';
+        } else {
+          e.style.height = '0.8vw';
+        }
         e.style.fill = 'black';
         if (j === 4 ){// || j === 0){
           e.remove();
@@ -139,6 +155,12 @@ export class AudioPlayerButtonComponent implements OnInit {
       e.style.fontFamily = 'Eurostile-extended';
       e.style.fontSize = 'xx-small';
       e.style.color = 'black';
+      if (window.matchMedia('(max-width: 600px)').matches) {
+        console.log('here');
+        e.style.fontSize = '7px';
+      } else {
+        e.style.fontSize = 'xx-small';
+      }
     }
 
     const title = document.getElementsByClassName('title');
@@ -146,10 +168,16 @@ export class AudioPlayerButtonComponent implements OnInit {
     for (let i = 0; i < title.length; i++) {
       const e = title[i] as HTMLElement;
       e.style.fontFamily = 'Eurostile-extended';
-      e.style.fontSize = 'small';
+      // e.style.fontSize = 'small';
       e.style.fontWeight = 'bolder';
       e.style.color = 'black';
       e.style.margin = '0';
+      if (window.matchMedia('(max-width: 600px)').matches) {
+        console.log('here');
+        e.style.fontSize = 'x-small';
+      } else {
+        e.style.fontSize = 'small';
+      }
     }
 
     const slidecont = document.getElementsByClassName('slidecontainer');
@@ -180,6 +208,7 @@ export class AudioPlayerButtonComponent implements OnInit {
     for (let i = 0; i < cover.length; i++) {
       const e = container[i] as HTMLElement;
       e.style.alignContent = 'center';
+      
     }
 
     // const slider = document.getElementsByClassName('slider');
