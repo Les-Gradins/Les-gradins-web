@@ -23,6 +23,8 @@ export class AudioPlayerButtonComponent implements OnInit {
   public audioList;
   saison: Saison|undefined;
 
+
+
   constructor(private chansonService: ChansonService) {
 
     this.psub = this.chansonService.getSelectedPersonnage().subscribe(p => {
@@ -94,6 +96,8 @@ export class AudioPlayerButtonComponent implements OnInit {
     }, 200);
   }
 
+
+
   afficherAudioPlayer(): void {
     this.isAudioplayerToggled = !this.isAudioplayerToggled;
     if (this.isAudioplayerToggled) {
@@ -101,6 +105,10 @@ export class AudioPlayerButtonComponent implements OnInit {
         this.init();
       }, 100);
     }
+  }
+
+  visibility(): string {
+    return this.isAudioplayerToggled ? 'visible' : 'hidden';
   }
 
   init(): void {

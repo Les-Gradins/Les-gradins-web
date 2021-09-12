@@ -1,7 +1,7 @@
 <body>
   
 
-  <div class='player'  @fadeAnimation *ngIf=isAudioplayerToggled>
+  <div class='player'  [style.visibility]='visibility()' @fadeAnimation >
     <app-audio-player [audioList]=audioList></app-audio-player>
   </div>
   <div class='perso'>
