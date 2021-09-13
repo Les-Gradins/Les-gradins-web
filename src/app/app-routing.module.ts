@@ -7,6 +7,7 @@ import { MenuSaisonsComponent } from './pages/menu-saisons/menu-saisons.componen
 import { PageTitreComponent } from './pages/page-titre/page-titre.component';
 import { MenuChapitresComponent } from './pages/menu-chapitres/menu-chapitres.component';
 import { AudioPlayerComponent } from './pages/audio-player/audio-player.component';
+import { BlocModalComponent } from './pages/bloc-modal/bloc-modal.component';
 
 const routes: Routes = [
   { path: '', component: PageTitreComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
     { path: 'chanson', component: ChansonChapitreComponent },
     { path: 'photo', component: ChansonPhotosComponent },
     { path: 'saisons', component: MenuSaisonsComponent },
+    { path: 'bloc', component: BlocModalComponent }
   ]}
 ];
 
