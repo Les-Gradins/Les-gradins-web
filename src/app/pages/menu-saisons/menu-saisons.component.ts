@@ -27,6 +27,8 @@ export class MenuSaisonsComponent implements OnInit, OnDestroy {
   public rotationSaison = 12;
   public rotationChanson = 71;
   public rotationLogo = -45;
+  estUnlocked: boolean;
+  unlockedSub: Subscription;
 
   constructor(private chansonService: ChansonService, private router: Router) {
     this.sub = this.chansonService.getSelectedSeason().subscribe(saison => {
@@ -40,6 +42,10 @@ export class MenuSaisonsComponent implements OnInit, OnDestroy {
         this.rotationLogo += this.saisonChoisie.saisonIndex * (-90);
       }
 
+    });
+
+    this.unlockedSub = this.chansonService.getEstDebloquee().subscribe((u) => {
+      this.estUnlocked = u;
     });
 
 
@@ -181,9 +187,13 @@ export class MenuSaisonsComponent implements OnInit, OnDestroy {
   }
 
   async selectSong(): Promise<any>{
-    this.chansonService.setSelectedSeason(this.saisonChoisie).then(() => {
-      this.router.navigateByUrl('menu/photo');
-    });
+    if (this.estUnlocked || !this.chansonService.saisonIsLocked(this.saisonChoisie.saisonIndex)){
+      this.chansonService.setSelectedSeason(this.saisonChoisie).then(() => {
+        this.router.navigateByUrl('menu/photo');
+      });
+    } else {
+      setTimeout(() => this.router.navigateByUrl('menu/bloc'), 1450);
+    }
   }
 
   getIndex(): number {

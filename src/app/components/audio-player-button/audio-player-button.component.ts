@@ -208,7 +208,7 @@ export class AudioPlayerButtonComponent implements OnInit {
     for (let i = 0; i < cover.length; i++) {
       const e = container[i] as HTMLElement;
       e.style.alignContent = 'center';
-      
+
     }
 
     // const slider = document.getElementsByClassName('slider');

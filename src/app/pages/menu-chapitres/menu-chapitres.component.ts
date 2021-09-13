@@ -21,6 +21,8 @@ export class MenuChapitresComponent implements OnInit, OnDestroy {
   public rotationDeg = 16;
   public logoRotationDeg = 0;
   public transformString = '';
+  public unlockedSub: Subscription;
+  public estUnlocked: boolean;
 
   constructor(private chansonService: ChansonService, private router: Router) {
     this.sub = this.chansonService.getSelectedSong().subscribe((chanson) => {
@@ -31,6 +33,10 @@ export class MenuChapitresComponent implements OnInit, OnDestroy {
         this.rotationDeg = this.chansonChoisie.rotDeg;
       }
 
+    });
+
+    this.unlockedSub = this.chansonService.getEstDebloquee().subscribe((u) => {
+      this.estUnlocked = u;
     });
 
   }
@@ -104,11 +110,16 @@ export class MenuChapitresComponent implements OnInit, OnDestroy {
   }
 
   async selectSong(): Promise<any> {
-    this.chansonService.setSelectedSong(this.chansonChoisie).then(() => {
-      this.logoRotationDeg = 0;
-      this.rotateLogo();
-      setTimeout(() => this.router.navigateByUrl('menu/chanson'), 1450);
-    });
+    if (this.estUnlocked || !this.chansonService.songIsLocked(this.chansonChoisie.tracknumber)){
+      this.chansonService.setSelectedSong(this.chansonChoisie).then(() => {
+        this.logoRotationDeg = 0;
+        this.rotateLogo();
+        setTimeout(() => this.router.navigateByUrl('menu/chanson'), 1450);
+      });
+    } else {
+      setTimeout(() => this.router.navigateByUrl('menu/bloc'), 1450);
+    }
+
   }
 
   getIndex(): number {

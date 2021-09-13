@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ChansonService } from 'src/app/modeles/chanson.service';
 import { Saison } from 'src/app/modeles/saison';
@@ -13,8 +14,10 @@ export class ChansonPhotosComponent implements OnInit {
   saison: Saison|undefined;
   sub: Subscription;
   index: Array<number> = [];
+  estUnlocked: boolean;
+  unlockedSub: Subscription;
 
-  constructor(private chansonService: ChansonService) {
+  constructor(private chansonService: ChansonService, private router: Router) {
     this.sub = this.chansonService.getSelectedSeason().subscribe(season => {
       this.saison = season;
       this.index = [];
@@ -23,16 +26,28 @@ export class ChansonPhotosComponent implements OnInit {
       }
       console.log(this.index);
     });
+
+    this.unlockedSub = this.chansonService.getEstDebloquee().subscribe((u) => {
+      this.estUnlocked = u;
+    });
   }
 
   getNext(): void{
     const next = this.saison.saisonIndex === 4 ? 0 : this.saison.saisonIndex;
-    this.chansonService.setSelectedSeason(Saisons[next]);
+    if (this.estUnlocked || !this.chansonService.saisonIsLocked(Saisons[next].saisonIndex)){
+      this.chansonService.setSelectedSeason(Saisons[next]);
+    } else {
+      this.router.navigateByUrl('menu/bloc');
+    }
   }
 
   getPrec(): void{
     const prec = this.saison.saisonIndex === 1 ? 3 : this.saison.saisonIndex - 2;
-    this.chansonService.setSelectedSeason(Saisons[prec]);
+    if (this.estUnlocked || !this.chansonService.saisonIsLocked(Saisons[prec].saisonIndex)){
+      this.chansonService.setSelectedSeason(Saisons[prec]);
+    } else {
+      this.router.navigateByUrl('menu/bloc');
+    }
   }
 
 

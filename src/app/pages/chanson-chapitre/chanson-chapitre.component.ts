@@ -1,5 +1,5 @@
 import { Component, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { combineLatest, Subscription } from 'rxjs';
 import { Tracklist } from 'src/tracklist';
 import { ChansonService } from '../../modeles/chanson.service';
@@ -14,8 +14,10 @@ export class ChansonChapitreComponent implements OnInit, OnChanges, OnDestroy {
   chanson: Chanson|undefined;
   sub: Subscription;
   index: Array<number> = [];
+  unlockedSub: Subscription;
+  estUnlocked: boolean;
 
-  constructor(private route: ActivatedRoute, private chansonService: ChansonService) {
+  constructor(private route: ActivatedRoute, private chansonService: ChansonService, private router: Router) {
     this.sub = this.chansonService.getSelectedSong().subscribe(title => {
       this.chanson = title;
       this.index = [];
@@ -23,6 +25,10 @@ export class ChansonChapitreComponent implements OnInit, OnChanges, OnDestroy {
        this.index.push(i);
       }
       console.log(this.index);
+    });
+
+    this.unlockedSub = this.chansonService.getEstDebloquee().subscribe((u) => {
+      this.estUnlocked = u;
     });
 
    }
@@ -48,16 +54,24 @@ export class ChansonChapitreComponent implements OnInit, OnChanges, OnDestroy {
 
   getNext(): void{
     const next = this.chanson.tracknumber === 12 ? 0 : this.chanson.tracknumber;
-    this.chansonService.setSelectedSong(Tracklist[next]);
-    const bd = document.getElementById('BD');
-    bd.scrollTop = 0;
+    if (this.estUnlocked || !this.chansonService.songIsLocked(Tracklist[next].tracknumber)){
+      this.chansonService.setSelectedSong(Tracklist[next]);
+      const bd = document.getElementById('BD');
+      bd.scrollTop = 0;
+    } else{
+      this.router.navigateByUrl('menu/bloc');
+    }
   }
 
   getPrec(): void{
     const prec = this.chanson.tracknumber === 1 ? 11 : this.chanson.tracknumber - 2;
-    this.chansonService.setSelectedSong(Tracklist[prec]);
-    const bd = document.getElementById('BD');
-    bd.scrollTop = 0;
+    if (this.estUnlocked || !this.chansonService.songIsLocked(Tracklist[prec].tracknumber)){
+      this.chansonService.setSelectedSong(Tracklist[prec]);
+      const bd = document.getElementById('BD');
+      bd.scrollTop = 0;
+    }else{
+      this.router.navigateByUrl('menu/bloc');
+    }
   }
 
 }
