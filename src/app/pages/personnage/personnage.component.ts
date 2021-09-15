@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ChansonService } from 'src/app/modeles/chanson.service';
 
@@ -10,7 +11,7 @@ import { ChansonService } from 'src/app/modeles/chanson.service';
 export class PersonnageComponent implements OnInit, OnDestroy {
   public personnageSelectionne: string;
   sub: Subscription;
-  constructor(private chansonService: ChansonService) {
+  constructor(private chansonService: ChansonService, public router: Router) {
     this.sub = this.chansonService.getSelectedPersonnage().subscribe(p => {
       this.personnageSelectionne = p;
 
@@ -22,6 +23,10 @@ export class PersonnageComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void{
     this.sub.unsubscribe();
+  }
+
+  onClick(): void {
+    this.router.navigateByUrl('');
   }
 
 }

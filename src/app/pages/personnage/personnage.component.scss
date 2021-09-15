@@ -34,6 +34,13 @@ p{
     outline: none;
     border: none;
     font-size: 0;
+    cursor: pointer;
+}
+
+.button:hover,
+.button:focus,
+.button-chanson:hover {
+    box-shadow: inset 7px 7px 15px rgba(55, 84, 170, 0.15), inset -7px -7px 20px white, 0px 0px 4px rgba(255, 255, 255, 0.2);
 }
 
 @media only screen and (max-width: 600px) { //screen and (orientation:landscape) {
