@@ -34,7 +34,6 @@ export class AudioPlayerElementComponent implements OnInit {
 
 
     });
-    console.log(this.audioList);
   }
 
   ngOnInit(): void {
@@ -53,7 +52,6 @@ export class AudioPlayerElementComponent implements OnInit {
   }
 
   init(): void {
-    console.log('INIT');
     const controls = document.getElementsByClassName('controls');
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < controls.length; i++) {
@@ -101,11 +99,11 @@ export class AudioPlayerElementComponent implements OnInit {
       // }
     }
 
-    const wrapper = document.getElementsByClassName('wrapper');
-    for (let i = 0; i < cover.length; i++) {
-      const e = wrapper[i] as HTMLElement;
-      e.style.height = 'max-content';
-    }
+    // const wrapper = document.getElementsByClassName('wrapper');
+    // for (let i = 0; i < cover.length; i++) {
+    //   const e = wrapper[i] as HTMLElement;
+    //   e.style.height = 'max-content';
+    // }
 
     const container = document.getElementsByClassName('container');
     for (let i = 0; i < cover.length; i++) {

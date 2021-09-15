@@ -1,11 +1,8 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { fadeAnimation } from 'src/app/app.animations';
-import { Chanson } from 'src/app/modeles/chanson';
 import { ChansonService } from 'src/app/modeles/chanson.service';
-import { Saison } from 'src/app/modeles/saison';
-import { Tracklist } from 'src/tracklist';
+
 
 @Component({
   selector: 'app-audio-player-button',
@@ -13,82 +10,18 @@ import { Tracklist } from 'src/tracklist';
   styleUrls: ['./audio-player-button.component.scss'],
   animations: [fadeAnimation]
 })
-export class AudioPlayerButtonComponent implements OnInit {
+export class AudioPlayerButtonComponent implements OnInit, OnDestroy {
 
   public isAudioplayerToggled = false;
-  chanson: Chanson|undefined;
   personnage: string|undefined;
-  sub: Subscription;
-  seasonSub: Subscription;
   psub: Subscription;
-  public audioList;
-  saison: Saison|undefined;
-
-
 
   constructor(private chansonService: ChansonService) {
 
     this.psub = this.chansonService.getSelectedPersonnage().subscribe(p => {
-      console.log(p);
       this.personnage = p;
-      if (p === 'Kirouac'){
-        this.sub = this.chansonService.getSelectedSong().subscribe(title => {
-          this.chanson = title;
-          this.audioList = [];
-          this.audioList = [
-              {
-                url: this.chanson.url,
-                title: this.chanson.trackname,
-                cover: '/assets/cover.jpg',
-              }
-            ];
-
-        });
-      } else if (p === 'Kodak') {
-        this.seasonSub = this.chansonService.getSelectedSeason().subscribe(title => {
-          this.saison = title;
-          this.audioList = [];
-          this.audioList = this.saison.tracks.reduce((acc, t) => {
-            const chansonIdx = Tracklist.findIndex((c) => c.trackname === t);
-            acc.push({
-              url: Tracklist[chansonIdx].url,
-              title: t,
-              cover: '/assets/cover.jpg',
-            });
-            return acc;
-          }, []);
-
-        });
-      }
-
     });
-    // this.sub = this.chansonService.getSelectedSong().subscribe(title => {
-    //   this.chanson = title;
-    //   this.audioList = [
-    //       {
-    //         url: this.chanson.url,
-    //         title: this.chanson.trackname,
-    //         cover: '/assets/cover.jpg',
-    //       }
-    //     ];
 
-    // });
-
-    // this.seasonSub = this.chansonService.getSelectedSeason().subscribe(title => {
-    //   this.saison = title;
-    //   this.audioList = this.saison.tracks.reduce((acc, t) => {
-    //     const chansonIdx = Tracklist.findIndex((c) => c.trackname === t);
-    //     acc.push([{
-    //       url: Tracklist[chansonIdx].url,
-    //       title: t,
-    //       cover: '/assets/cover.jpg',
-    //     }]);
-    //     return acc;
-    //   }, []);
-
-
-    // });
-    console.log(this.audioList);
   }
 
   ngOnInit(): void {
@@ -97,7 +30,9 @@ export class AudioPlayerButtonComponent implements OnInit {
     }, 200);
   }
 
-
+  ngOnDestroy(): void{
+    this.psub.unsubscribe();
+  }
 
   afficherAudioPlayer(): void {
     this.isAudioplayerToggled = !this.isAudioplayerToggled;
@@ -116,8 +51,9 @@ export class AudioPlayerButtonComponent implements OnInit {
     // tslint:disable-next-line: prefer-for-of
     for (let j = 0; j < document.styleSheets[11].cssRules.length; j++) {
       const rule = document.styleSheets[11].cssRules[j] as CSSStyleRule;
-      if (rule.cssText.match('-webkit-slider-thumb')) {
+      if (rule.cssText.match('-webkit-slider-thumb') || rule.cssText.match('-moz-range-thumb')) {
         rule.style.backgroundColor = 'black';
+        rule.style.borderColor = 'black';
         rule.style.height = '6px';
         rule.style.width = '6px';
       }
@@ -125,7 +61,6 @@ export class AudioPlayerButtonComponent implements OnInit {
     const controls = document.getElementsByClassName('controls');
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < controls.length; i++) {
-      console.log(controls[i].children);
 
       for (let j = 0; j < controls[i].children.length; j++) {
         const e = controls[i].children[j] as HTMLElement;
@@ -135,16 +70,14 @@ export class AudioPlayerButtonComponent implements OnInit {
         } else {
           e.style.height = '0.8vw';
         }
-        e.style.fill = 'black';
-        if (j === 4 ){// || j === 0){
+        if (j === 4 ){
           e.remove();
         }
 
-        if (j === 0 ){// || j === 0){
+        if (j === 0 ){
           e.style.display = 'none';
         }
       }
-      // e.remove();
 
     }
 
@@ -156,7 +89,7 @@ export class AudioPlayerButtonComponent implements OnInit {
       e.style.fontSize = 'xx-small';
       e.style.color = 'black';
       if (window.matchMedia('(max-width: 600px)').matches) {
-        console.log('here');
+
         e.style.fontSize = '7px';
       } else {
         e.style.fontSize = 'xx-small';
@@ -173,7 +106,6 @@ export class AudioPlayerButtonComponent implements OnInit {
       e.style.color = 'black';
       e.style.margin = '0';
       if (window.matchMedia('(max-width: 600px)').matches) {
-        console.log('here');
         e.style.fontSize = 'x-small';
       } else {
         e.style.fontSize = 'small';
@@ -198,31 +130,16 @@ export class AudioPlayerButtonComponent implements OnInit {
       }
     }
 
-    const wrapper = document.getElementsByClassName('wrapper');
-    for (let i = 0; i < cover.length; i++) {
-      const e = wrapper[i] as HTMLElement;
-      e.style.height = 'max-content';
-    }
-
     const container = document.getElementsByClassName('container');
     for (let i = 0; i < cover.length; i++) {
       const e = container[i] as HTMLElement;
       e.style.alignContent = 'center';
 
     }
-
-    // const slider = document.getElementsByClassName('slider');
-    // // tslint:disable-next-line: prefer-for-of
-    // for (let i = 0; i < slider.length; i++) {
-    //   const e = slider[i] as HTMLElement;
-    //   e.style().color = 'black'
-    // }
   }
 
   @HostListener('click', ['$event.target']) onClick(e): void {
-    // window.alert('Current DOM element is');
     this.init();
   }
-
 
 }

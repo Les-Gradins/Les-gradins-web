@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AngMusicPlayerComponent, AngMusicPlayerService } from 'ang-music-player';
 import { Subscription } from 'rxjs';
 import { Chanson } from 'src/app/modeles/chanson';
 import { ChansonService } from 'src/app/modeles/chanson.service';
@@ -8,123 +9,83 @@ import { ChansonService } from 'src/app/modeles/chanson.service';
   templateUrl: './audio-player.component.html',
   styleUrls: ['./audio-player.component.scss']
 })
-export class AudioPlayerComponent implements OnInit {
+export class AudioPlayerComponent implements OnInit, AfterViewInit, OnDestroy {
 
   chanson: Chanson|undefined;
   sub: Subscription;
-  @Input()
+  vsub: Subscription;
+  p: Subscription;
+
+  public forwardColor: string;
+
   public audioList;
+  @ViewChild(AngMusicPlayerComponent) player: AngMusicPlayerComponent;
 
   constructor(private chansonService: ChansonService) {
-    // this.sub = this.chansonService.getSelectedSong().subscribe(title => {
-    //   this.chanson = title;
-    //   this.audioList = [
-    //       {
-    //         url: this.chanson.url,
-    //         title: this.chanson.trackname,
-    //         cover: '/assets/cover.jpg',
-    //       }
-    //     ];
-
-    // });
-    // console.log(this.audioList);
+    this.sub = this.chansonService.getAudioList().subscribe(audioList => {
+      this.audioList = audioList;
+    });
+    this.p = this.chansonService.getSelectedPersonnage().subscribe(perso => {
+      this.forwardColor = perso === 'Kirouac' ? 'rgba(236, 235, 235, 1)' : 'rgba(0, 0, 0, 1)';
+      console.log(this.forwardColor);
+    });
   }
 
-  // public audioList = [
-  //   {
-  //     url: '/assets/audio/01_Les_gradins.m4a',
-  //     title: '1 - Les Gradins',
-  //     cover: '/assets/cover.jpg',
-  //   },
-  //   {
-  //     url: '/assets/audio/02_Repeat.m4a',
-  //     title: '2 - Repeat',
-  //     cover: '/assets/cover.jpg',
-  //   },
-  //   {
-  //     url: '/assets/audio/03_Moiman.m4a',
-  //     title: '3 - Moi-man',
-  //     cover: '/assets/cover.jpg',
-
-  //   },
-  //   {
-  //     url: '/assets/audio/04_Sushine.m4a',
-  //     title: '4 - Sushine',
-  //     cover: '/assets/cover.jpg',
-  //   }
-  // ];
-
   ngOnInit(): void {
-    // setTimeout(() => {
-    //   this.init();
-    // }, 100);
+    setTimeout(() => {
+      this.init();
+    }, 100);
+  }
+
+  ngAfterViewInit(): void {
+    this.sub.unsubscribe();
+    this.player.height = '1vh';
+    this.vsub = this.chansonService.getAudioList().subscribe(audioList => {
+
+      this.player.audioList = audioList;
+      this.player.currentAudioIndex = 0;
+      this.player.pause();
+      this.player.initiateAudioPlayer();
+      setTimeout(() => {
+        this.init();
+      }, 50);
+
+    });
+    this.p = this.chansonService.getSelectedPersonnage().subscribe(perso => {
+      this.forwardColor = perso === 'Kirouac' ? 'rgba(236, 235, 235, 1)' : 'rgba(0, 0, 0, 1)';
+      this.player.previousButtonColor = this.forwardColor;
+      this.player.nextButtonColor = this.forwardColor;
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.vsub.unsubscribe();
   }
 
   init(): void {
+
     const controls = document.getElementsByClassName('controls');
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < controls.length; i++) {
-      const e = controls[i] as HTMLElement;
-      e.remove();
 
-    }
+      for (let j = 0; j < controls[i].children.length; j++) {
+        const e = controls[i].children[j] as HTMLElement;
 
-    const timeline = document.getElementsByClassName('time-line');
-    // tslint:disable-next-line: prefer-for-of
-    for (let i = 0; i < timeline.length; i++) {
-      const e = timeline[i] as HTMLElement;
-      e.style.fontFamily = 'Eurostile-extended';
-      e.style.fontSize = 'xx-small';
-      e.style.color = 'black';
-    }
+        if (window.matchMedia('(max-width: 600px)').matches) {
+          e.style.height = '3.2vw';
+        } else {
+          e.style.height = '0.8vw';
+        }
+        if (j === 4 ){// || j === 0){
+          e.remove();
+        }
 
-    const title = document.getElementsByClassName('title');
-    // tslint:disable-next-line: prefer-for-of
-    for (let i = 0; i < title.length; i++) {
-      const e = title[i] as HTMLElement;
-      e.style.fontFamily = 'Eurostile-extended';
-      e.style.fontSize = 'small';
-      e.style.fontWeight = 'bolder';
-      e.style.color = 'black';
-      e.style.margin = '0';
-    }
-
-    const slidecont = document.getElementsByClassName('slidecontainer');
-    // tslint:disable-next-line: prefer-for-of
-    for (let i = 0; i < slidecont.length; i++) {
-      const e = slidecont[i] as HTMLElement;
-
-      e.style.marginTop = '0.5vw';
-    }
-
-    const cover = document.getElementsByTagName('img');
-    // tslint:disable-next-line: prefer-for-of
-    for (let i = 0; i < cover.length; i++) {
-      const e = cover[i] as HTMLElement;
-      if ((cover[i].parentNode as HTMLElement).className  === 'cover ng-star-inserted' ){
-        e.style.maxHeight = '4vw';
-        e.style.maxWidth = '4vw';
+        if (j === 0 ){// || j === 0){
+          e.style.display = 'none';
+        }
       }
-    }
 
-    const wrapper = document.getElementsByClassName('wrapper');
-    for (let i = 0; i < cover.length; i++) {
-      const e = wrapper[i] as HTMLElement;
-      e.style.height = 'max-content';
     }
-
-    const container = document.getElementsByClassName('container');
-    for (let i = 0; i < cover.length; i++) {
-      const e = container[i] as HTMLElement;
-      e.style.alignContent = 'center';
-    }
-
-    // const slider = document.getElementsByClassName('slider');
-    // // tslint:disable-next-line: prefer-for-of
-    // for (let i = 0; i < slider.length; i++) {
-    //   const e = slider[i] as HTMLElement;
-    //   e.style().color = 'black'
-    // }
   }
 
 }
