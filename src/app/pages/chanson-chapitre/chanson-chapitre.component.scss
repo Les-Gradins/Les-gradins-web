@@ -70,6 +70,10 @@ img {
     height: 100%;
 }
 
+i {
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 600px) { //screen and (orientation:landscape) {
     /* Your CSS Here*/
     .app-layout {
