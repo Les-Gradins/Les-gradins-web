@@ -39,13 +39,14 @@ export class AudioPlayerComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngAfterViewInit(): void {
     this.sub.unsubscribe();
-    this.player.height = '1vh';
+    this.player.play();
     this.vsub = this.chansonService.getAudioList().subscribe(audioList => {
 
       this.player.audioList = audioList;
       this.player.currentAudioIndex = 0;
       this.player.pause();
       this.player.initiateAudioPlayer();
+      this.player.play();
       setTimeout(() => {
         this.init();
       }, 50);
