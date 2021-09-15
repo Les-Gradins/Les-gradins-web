@@ -24,7 +24,6 @@ export class ChansonChapitreComponent implements OnInit, OnChanges, OnDestroy {
       for (let i = 1; i <= this.chanson.casenumber; i++) {
        this.index.push(i);
       }
-      console.log(this.index);
     });
 
     this.unlockedSub = this.chansonService.getEstDebloquee().subscribe((u) => {

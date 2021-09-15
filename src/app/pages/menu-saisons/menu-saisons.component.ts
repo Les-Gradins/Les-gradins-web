@@ -99,7 +99,6 @@ export class MenuSaisonsComponent implements OnInit, OnDestroy {
     const elem = document.getElementById('demo7');
 
     this.saisonChoisie.tracks.forEach((c) => {
-      console.log(c);
       let i = this.getChansonStringIndex(c);
       const range = i + c.length;
       for (i ; i < range; i++){

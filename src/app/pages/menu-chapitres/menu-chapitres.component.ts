@@ -55,7 +55,6 @@ export class MenuChapitresComponent implements OnInit, OnDestroy {
   rotateText(): void {
     const elem = document.getElementById('demo6');
     const s = this.transformString + 'rotate(' + this.rotationDeg + 'deg)';
-    console.log(s);
     elem.style.transform = s;
 
     this.getIndex();

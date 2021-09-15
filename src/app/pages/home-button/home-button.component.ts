@@ -25,7 +25,6 @@ export class HomeButtonComponent implements OnInit, OnDestroy {
   }
 
   retourAuMenu(): void{
-    console.log('here');
     if (this.personnage === 'Kirouac'){
       this.router.navigateByUrl('menu/chapitres');
     } else {

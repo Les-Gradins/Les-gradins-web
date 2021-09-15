@@ -24,7 +24,6 @@ export class ChansonPhotosComponent implements OnInit {
       for (let i = 1; i <= this.saison.casenumber; i++) {
        this.index.push(i);
       }
-      console.log(this.index);
     });
 
     this.unlockedSub = this.chansonService.getEstDebloquee().subscribe((u) => {

@@ -17,7 +17,6 @@ export class MenuComponent implements OnInit, OnChanges, OnDestroy {
 
   constructor(private chansonService: ChansonService, private router: Router) {
     this.sub = this.chansonService.getSelectedPersonnage().subscribe(p => {
-      console.log(p);
       this.personnage = p;
       if (p === 'Kirouac'){
         this.router.navigateByUrl('menu/chapitres');
