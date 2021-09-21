@@ -5,7 +5,7 @@
         {
             saisonIndex: 1,
             nomSaison: 'ÉTÉ',
-            photosPath: '/assets/LES_GRADINS_PHOTOS_WEB_compressed/ETE/ETE',
+            photosPath: '/assets/LES_GRADINS_PHOTOS_WEB/ETE/ETE',
             tracks: ['REPEAT', 'MOIMAN', 'SUNSHINE (III)'],
             casenumber: 26,
             rotationDeg: 371.5
@@ -14,7 +14,7 @@
         {
             saisonIndex: 2,
             nomSaison: 'AUTOMNE',
-            photosPath: '/assets/LES_GRADINS_PHOTOS_WEB_compressed/AUTOMNE/AUTOMNE',
+            photosPath: '/assets/LES_GRADINS_PHOTOS_WEB/AUTOMNE/AUTOMNE',
             tracks: ['CARRÉ SAINT-LOUIS', 'VRAI', 'YO KODAK! (VI)'],
             casenumber: 23,
             rotationDeg: 99.2
