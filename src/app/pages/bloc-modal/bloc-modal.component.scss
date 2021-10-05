@@ -17,7 +17,16 @@ p{
     font-weight: bold;
     font-size: xx-large;
     color: black;
-    transform: translateY(-11.5vh);
+    transform: translateY(-12.5vh);
+}
+
+.sous-texte{
+    font-family: "Eurostile-extended";
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
+    padding-left: 5vw;
+    padding-right: 5vw;
 }
 
 .button {
@@ -60,11 +69,18 @@ svg {
     display: flex;
     width: 100%;
     direction: row;
-    height: min-content;
+    height: max-content;
     justify-content: space-around;
     cursor: pointer;
-    transform: translateY(-16.5vh);
+    
 
+}
+.bouton-boutique-grid{
+    display: grid;
+    width: 80%;
+    grid-template-columns: 50% 50%;
+    height: max-content;
+    transform: translateY(-20.5vh);
 }
 
 .cadre {

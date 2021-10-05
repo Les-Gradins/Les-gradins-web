@@ -12,8 +12,13 @@ export class BlocModalComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async redirectToBoutique(): Promise<any> {
-    window.location.href = 'https://kirouackodakludo.com/boutique/';
+  async redirectToBoutiqueVinyle(): Promise<any> {
+    window.location.href = 'https://kirouackodakludo.com/produit/vinyle-gradins/';
+
+  }
+
+  async redirectToBoutiqueCD(): Promise<any> {
+    window.location.href = 'https://kirouackodakludo.com/produit/les-gradins-lalbum-numerique/';
 
   }
 

@@ -6,7 +6,7 @@ import { Saison } from './saison';
 import { Saisons } from 'src/saisons';
 
 const INDEX_BLOCKED: Array<number> = [8, 9, 10, 11, 12];
-const INDEX_SAISON_BLOCKED: Array<number> = [3, 4];
+const INDEX_SAISON_BLOCKED: Array<number> = [4];
 @Injectable({
   providedIn: 'root'
 })
