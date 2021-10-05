@@ -66,6 +66,10 @@ export class MenuChapitresComponent implements OnInit, OnDestroy {
     }
   }
 
+  visibility(): string {
+    return (this.estUnlocked || !this.chansonService.songIsLocked(this.chansonChoisie.tracknumber)) ? 'hidden' : 'visible';
+  }
+
   rotateLogo(): void {
     const logo = document.getElementById('logo');
 

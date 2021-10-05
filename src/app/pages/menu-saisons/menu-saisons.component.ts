@@ -195,6 +195,10 @@ export class MenuSaisonsComponent implements OnInit, OnDestroy {
     }
   }
 
+  visibility(): string {
+    return (this.estUnlocked || !this.chansonService.saisonIsLocked(this.saisonChoisie.saisonIndex)) ? 'hidden' : 'visible';
+  }
+
   getIndex(): number {
     return this.saisonString.indexOf(this.saisonChoisie.nomSaison);
   }

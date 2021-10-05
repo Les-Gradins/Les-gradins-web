@@ -33,6 +33,7 @@ h2 {
 }
 
 svg {
+    position: absolute;
     width:48vh;
     height:48vh;
     align-items: center;
@@ -84,7 +85,7 @@ svg {
 }
 
 image {
-    position: absolute ;
+    position: relative ;
     left:0; 
     top:0;
     transition: all 1.5s
