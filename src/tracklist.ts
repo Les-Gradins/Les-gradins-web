@@ -69,7 +69,7 @@
             photosPath: '../assets/LES GRADINS_PHOTO_WEB/7-YO KODAK!(VI)',
             bdPath: '/assets/LES GRADINS_BD_WEB/7-YO KODAK!(VI)/7-YO KODAK!(VI)_',
             casenumber: 9,
-            url: '/assets/audio/Non-ACC/07_Yo_kodak.m4a',
+            url: '/assets/audio/ACC/07_Yo_kodak.m4a',
             rotDeg: 192
         },
 
