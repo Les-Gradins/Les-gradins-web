@@ -9,19 +9,19 @@
 </div>
 <div class="container">
     <button class='button' type='button' (click)="selectionnerExperience('Kirouac')">
-        <svg width="100%" height="100%" *ngIf="isNotSelected('Kirouac')">
+        <svg width="100%" height="100%" [style.visibility]="isNotSelected('Kirouac')">
           <image width="100%" height="100%" xlink:href="/assets/perso/KIROUAC_perso-off.png" />
         </svg>
-        <svg width="100%" height="100%" *ngIf="isSelected('Kirouac')">
+        <svg width="100%" height="100%" [style.visibility]="isSelected('Kirouac')">
             <image width="100%" height="100%" xlink:href="/assets/perso/KIROUAC_perso-on.png" />
           </svg>
     </button>
     
     <button class='button' type='button' (click)="selectionnerExperience('Kodak')">
-        <svg width="90%" height="90%" *ngIf="isNotSelected('Kodak')">
+        <svg width="90%" height="90%" [style.visibility]="isNotSelected('Kodak')">
           <image width="100%" height="100%" xlink:href="/assets/perso/KODAK_perso-off.png" />
         </svg>
-        <svg width="100%" height="100%" *ngIf="isSelected('Kodak')">
+        <svg width="100%" height="100%" [style.visibility]="isSelected('Kodak')">
             <image width="100%" height="100%" xlink:href="/assets/perso/KODAK_perso-on.png" />
           </svg>
     </button>

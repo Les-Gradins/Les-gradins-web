@@ -1,10 +1,10 @@
-body {
+.body-menu {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-height: 100%;
-    max-width: 100%;
+    height: 97vh;
+    width: 100vw;
     background: #ecebeb;
     font-family: "Eurostile-extended";
     font-weight: bold;

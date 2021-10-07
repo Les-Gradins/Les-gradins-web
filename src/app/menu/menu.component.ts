@@ -1,12 +1,14 @@
 import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ChansonService } from '../modeles/chanson.service';
+import { fader, slider } from '../route-animations';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  styleUrls: ['./menu.component.scss'],
+  animations: [slider, fader]
 })
 export class MenuComponent implements OnInit, OnChanges, OnDestroy {
   personnage: string;
@@ -57,6 +59,10 @@ export class MenuComponent implements OnInit, OnChanges, OnDestroy {
   ngOnDestroy(): void{
     this.sub.unsubscribe();
     this.routeSub.unsubscribe();
+  }
+
+  prepareRoute(outlet: RouterOutlet): any {
+    return outlet && outlet.activatedRouteData && outlet.activatedRouteData['animation'];
   }
 
 }

@@ -1,5 +1,7 @@
     <nz-content>
       <div class="inner-content">
-        <router-outlet></router-outlet>
+        <main [@routeAnimations]="prepareRoute(outlet1)">
+          <router-outlet #outlet1></router-outlet>
+        </main>
       </div>
     </nz-content>

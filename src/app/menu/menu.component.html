@@ -4,9 +4,12 @@
         <app-personnage></app-personnage>
       </nz-header>
       <nz-content>
-        <div class="inner-content">
-          <router-outlet></router-outlet>
-        </div>
+        <!-- <div class="inner-content"> -->
+          <div [@routeAnimations]="prepareRoute(outlet)" class="inner-content">
+            <router-outlet #outlet="outlet"></router-outlet>
+          </div>
+          
+        <!-- </div> -->
       </nz-content>
       <nz-footer @fadeAnimation *ngIf="isCollapsed">
         <div>

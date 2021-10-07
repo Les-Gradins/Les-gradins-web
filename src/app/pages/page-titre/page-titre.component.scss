@@ -9,6 +9,7 @@ body {
 }
 
 img {
+    position:relative;
     width:30vw;
     height:30vw;
     align-items: center;
@@ -89,6 +90,11 @@ p{
     border: none;
     font-size: 0;
     cursor: pointer;
+}
+
+svg{
+    position: absolute;
+    // transition:visibility 1s, opacity 1s; 
 }
 
 .button:hover,

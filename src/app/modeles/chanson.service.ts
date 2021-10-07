@@ -18,6 +18,7 @@ export class ChansonService {
   private personnage: BehaviorSubject<string> = new BehaviorSubject<string>('');
   private estDebloquee: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   private audioList: BehaviorSubject<Array<any>> = new BehaviorSubject<Array<any>>([]);
+  public firstPlay: boolean = true;
 
   getSelectedSong(): Observable<Chanson>{
     return this.chansonActuelle.asObservable();
@@ -92,6 +93,10 @@ export class ChansonService {
   }
   saisonIsLocked(n: number): boolean {
     return INDEX_SAISON_BLOCKED.includes(n);
+  }
+
+  setFirstPlay(b: boolean): void{
+    this.firstPlay = b;
   }
 
   async setSelectedPersonnage(p: string): Promise<any>{

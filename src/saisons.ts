@@ -23,7 +23,7 @@
         {
             saisonIndex: 3,
             nomSaison: 'HIVER',
-            photosPath: '/assets/LES_GRADINS_PHOTOS_WEB_compressed/HIVER/HIVER',
+            photosPath: '/assets/LES_GRADINS_PHOTOS_WEB/HIVER/HIVER',
             tracks: ['IMMORTEL', 'L\'ÉQUIPE', 'CARNAVAL (IX)'],
             casenumber: 25,
             rotationDeg: 189

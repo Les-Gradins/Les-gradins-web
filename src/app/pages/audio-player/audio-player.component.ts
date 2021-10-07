@@ -47,6 +47,10 @@ export class AudioPlayerComponent implements OnInit, AfterViewInit, OnDestroy {
       this.player.pause();
       this.player.initiateAudioPlayer();
       this.player.play();
+      if (this.detectBrowserName() === 'safari' && this.chansonService.firstPlay){
+        this.player.pause();
+        this.chansonService.setFirstPlay(false);
+      }
       setTimeout(() => {
         this.init();
       }, 50);
@@ -57,6 +61,26 @@ export class AudioPlayerComponent implements OnInit, AfterViewInit, OnDestroy {
       this.player.previousButtonColor = this.forwardColor;
       this.player.nextButtonColor = this.forwardColor;
     });
+  }
+
+  detectBrowserName(): string { 
+    const agent = window.navigator.userAgent.toLowerCase()
+    switch (true) {
+      case agent.indexOf('edge') > -1:
+        return 'edge';
+      case agent.indexOf('opr') > -1 && !!(<any>window).opr:
+        return 'opera';
+      case agent.indexOf('chrome') > -1 && !!(<any>window).chrome:
+        return 'chrome';
+      case agent.indexOf('trident') > -1:
+        return 'ie';
+      case agent.indexOf('firefox') > -1:
+        return 'firefox';
+      case agent.indexOf('safari') > -1:
+        return 'safari';
+      default:
+        return 'other';
+    }
   }
 
   ngOnDestroy(): void {
