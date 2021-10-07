@@ -15,9 +15,10 @@ body {
 p{
     font-family: "Eurostile-extended";
     font-weight: bold;
-    font-size: xx-large;
+    font-size: x-large;
     color: black;
     transform: translateY(-12.5vh);
+    text-align: center;
 }
 
 .sous-texte{
@@ -173,17 +174,18 @@ image {
 
     .annonce{
         font-weight:bolder;
-        padding-top: 10%;
+        padding-top: 7%;
     }
     .sous-texte{
         font-weight: normal;
+        padding-bottom: 5px;
     }
 
     .bouton-boutique {
         display: flex;
         width: 100%;
         direction: row;
-        height: min-content;
+        height: max-content;
         justify-content: space-around;
         cursor: pointer;
         transform: translateY(-6.5vh);
@@ -198,7 +200,7 @@ image {
         padding-top: 10px;
         padding-left: 30px;
         padding-right: 30px;
-        font-size: medium;
+        font-size: small;
         text-align: center;
     }
   
@@ -221,11 +223,12 @@ image {
     }
 
     .bouton-boutique-grid{
-        display: grid;
-        width: 80%;
-        grid-template-columns: 50% 50%;
+        display: flex;
+        flex-direction: column;
         height: max-content;
-        transform: translateY(-9.8vh);
+        // grid-template-rows: 50% 50%;
+        height: max-content;
+        transform: translateY(-6.8vh);
     }
 
     .button {
@@ -259,7 +262,8 @@ image {
   
     .button-chanson {
         display: inline-block;
-        margin-top: 5vh;
+        margin-top: 0vh;
+        margin-bottom: 2vh;
         position: relative;
         align-items: center;
         justify-content: center;
