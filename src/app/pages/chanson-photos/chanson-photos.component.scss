@@ -53,14 +53,12 @@ i{
     flex-shrink: 0;
 }
 .photo {
-    display: flex;
     height: max-content;
     background: #ecebeb;
 }
 
 .etiquette {
     
-    display: flex;
     height: max-content;
     width: 100% !important;
     height: auto !important;
@@ -90,8 +88,8 @@ img{
     .photo {
         // grid-row: span 3;
         position: relative;
-        display: flex;
         height: max-content;
+        height: -webkit-max-content;
         background: #ecebeb;
     }
 }
