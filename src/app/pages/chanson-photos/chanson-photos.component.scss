@@ -50,6 +50,7 @@ i{
     grid-column-gap:10px ;
     grid-row-gap:10px ;
     background: #ecebeb;
+    flex-shrink: 0;
 }
 .photo {
     display: flex;
@@ -58,6 +59,7 @@ i{
 }
 
 .etiquette {
+    
     display: flex;
     height: max-content;
     width: 100% !important;
@@ -81,6 +83,15 @@ img{
         column-count:3;
         grid-column-gap:10px ;
         grid-row-gap:10px ;
+        flex-shrink: 0;
+        background: #ecebeb;
+    }
+
+    .photo {
+        // grid-row: span 3;
+        position: relative;
+        display: flex;
+        height: max-content;
         background: #ecebeb;
     }
 }
