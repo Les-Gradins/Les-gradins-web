@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -76,7 +77,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
       registrationStrategy: 'registerWhenStable:30000'
     })
   ],
-  providers: [{ provide: NZ_I18N, useValue: fr_FR }, { provide: NZ_ICONS, useValue: icons }, ChansonService],
+  providers: [{ provide: LocationStrategy, useClass: PathLocationStrategy },{ provide: NZ_I18N, useValue: fr_FR }, { provide: NZ_ICONS, useValue: icons }, ChansonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

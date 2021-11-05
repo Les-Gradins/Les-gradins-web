@@ -32,7 +32,7 @@
         {
             saisonIndex: 4,
             nomSaison: 'PRINTEMPS',
-            photosPath: '/assets/LES_GRADINS_PHOTOS_WEB_compressed/PRINTEMPS/PRINTEMPS',
+            photosPath: '/assets/LES_GRADINS_PHOTOS_WEB/PRINTEMPS/PRINTEMPS',
             tracks: ['DANS LE VENT', 'OLYMPE', 'LES GRADINS (XII)'],
             casenumber: 19,
             rotationDeg: 281.5
