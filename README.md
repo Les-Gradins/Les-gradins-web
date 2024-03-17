@@ -1,4 +1,7 @@
 # LesGradins
+Concept multimedia webapp for artists Kirouac & KodakLudo and their *Les Gradins* album. See [Les gradins](https://kirouackodakludo.com/gradins/) for more info.
+
+![homepage](/les-gradins/src/assets/gradins_home.png)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.5.
 
